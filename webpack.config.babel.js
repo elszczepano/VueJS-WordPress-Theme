@@ -2,6 +2,7 @@ import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import VueLoaderPlugin from 'vue-loader/lib/plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 const config = {
   entry: {
@@ -11,7 +12,6 @@ const config = {
         filename: 'js/[name].js',
         path: path.resolve(__dirname, 'dist')
     },
-    mode: 'development',
     module: {
         rules: [
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
@@ -57,7 +57,8 @@ const config = {
             cssProcessorOptions: { discardComments: { removeAll: true } },
             canPrint: true
         }),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new UglifyJsPlugin()
     ]
 };
 

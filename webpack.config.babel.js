@@ -3,6 +3,26 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import VueLoaderPlugin from 'vue-loader/lib/plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
+
+const prodPlugins = [
+    new UglifyJsPlugin(),
+    new OptimizeCssAssetsPlugin({
+        assetNameRegExp: /\.optimize\.css$/g,
+        cssProcessor: require('cssnano'),
+        cssProcessorOptions: { discardComments: { removeAll: true } },
+        canPrint: true
+    })
+];
+const basicPlugins = [
+    new CleanWebpackPlugin('dist'),
+    new ExtractTextPlugin({
+        filename: 'style.css'
+    }),
+    new VueLoaderPlugin()
+];
+
+
 
 const config = {
   entry: {
@@ -47,19 +67,7 @@ const config = {
         },
         extensions: ['*', '.js', '.vue', '.json']
     },
-    plugins: [
-        new ExtractTextPlugin({
-            filename: 'style.css'
-        }),
-        new OptimizeCssAssetsPlugin({
-            assetNameRegExp: /\.optimize\.css$/g,
-            cssProcessor: require('cssnano'),
-            cssProcessorOptions: { discardComments: { removeAll: true } },
-            canPrint: true
-        }),
-        new VueLoaderPlugin(),
-        new UglifyJsPlugin()
-    ]
+    plugins: !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? basicPlugins : basicPlugins.concat(prodPlugins)
 };
 
 module.exports = config;

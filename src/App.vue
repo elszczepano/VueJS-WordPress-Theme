@@ -1,15 +1,14 @@
 <template>
-    <h1>{{ message }}</h1>
+    <div id="app">
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
-    console.log(process.env.NODE_ENV);
     export default {
         name: 'app',
         data() {
-            return {
-                message: 'Hello, Vue!'
-            };
+            return {};
         }
     };
 </script>

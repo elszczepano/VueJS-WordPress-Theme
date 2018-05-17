@@ -1,10 +1,14 @@
 <template>
-    <h1>Hello, Vue!</h1>
+   <main-header />
 </template>
 
 <script>
+    import MainHeader from './MainHeader';
     export default {
-        name: "Main"
+        name: "Main",
+        components: {
+            MainHeader
+        },
     }
 </script>
 

@@ -1,11 +1,15 @@
 import path from 'path';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import VueLoaderPlugin from 'vue-loader/lib/plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
+const devMode = process.env.NODE_ENV !== 'production';
 
 const prodPlugins = [
+    new MiniCssExtractPlugin({
+        filename: "style.css"
+    }),
     new UglifyJsPlugin(),
     new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.optimize\.css$/g,
@@ -14,20 +18,16 @@ const prodPlugins = [
         canPrint: true
     })
 ];
+
 const basicPlugins = [
     new CleanWebpackPlugin('dist'),
-    new ExtractTextPlugin({
-        filename: 'style.css'
-    }),
     new VueLoaderPlugin()
 ];
 
-
-
 const config = {
-  entry: {
-      bundle: './src/main.js'
-  },
+    entry: {
+        bundle: './src/main.js'
+    },
     output: {
         filename: 'js/[name].js',
         path: path.resolve(__dirname, 'dist')
@@ -36,28 +36,19 @@ const config = {
         rules: [
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
             {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader']
-                })
-            },
-            {
-                test: /\.styl$/,
-                loader: ['style-loader', 'css-loader', 'stylus-loader']
-            },
-            { test: /\.(scss|sass)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['sass-loader']
-                })
+                test: /\.s?[ac]ss$/,
+                use: [
+                    devMode ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                ]
             },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
                     loaders: {
-                        js: 'babel-loader'
+                        js: 'babel-loader',
                     }
                 }
             },
@@ -78,7 +69,7 @@ const config = {
         },
         extensions: ['*', '.js', '.vue', '.json']
     },
-    plugins: !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? basicPlugins : basicPlugins.concat(prodPlugins)
+    plugins: !process.env.NODE_ENV || !devMode ? basicPlugins : basicPlugins.concat(prodPlugins)
 };
 
 module.exports = config;

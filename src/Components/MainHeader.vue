@@ -54,6 +54,7 @@
             drawer: null,
             blogItems: [
                 { title: 'Kategorie', link: 'http://reddit.com' },
+                { title: 'Artykuły', link: 'http://reddit.com' },
                 { title: 'Ostatnio dodane', link: 'http://reddit.com' },
                 { title: 'Najpopularniejsze', link: 'http://reddit.com' }
             ],
@@ -80,6 +81,6 @@
         font-size: 2rem;
     }
     .navbar-menu__icon {
-        color: #E03C31;
+        color: $primary-red;
     }
 </style>

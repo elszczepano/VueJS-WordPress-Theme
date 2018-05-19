@@ -40,7 +40,13 @@ const config = {
                 use: [
                     devMode ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader',
-                    'sass-loader'
+                    'sass-loader',
+                    {
+                        loader: 'sass-resources-loader',
+                        options: {
+                            resources: path.resolve(__dirname, 'src/assets/scss/main.scss')
+                        },
+                    },
                 ]
             },
             {

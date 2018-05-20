@@ -1,7 +1,7 @@
 <template>
     <v-content>
         <v-toolbar class="navbar-menu">
-            <v-toolbar-title class="logo">devszczepaniak.pl</v-toolbar-title>
+            <v-toolbar-title class="logo"><span class="text__red">dev</span>szczepaniak.pl</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
                 <v-btn flat>Start</v-btn>
@@ -79,7 +79,7 @@
         font-family: $logo-font;
         font-size: 2rem;
     }
-    .navbar-menu__icon {
+    .navbar-menu__icon , .text__red{
         color: $primary-red;
     }
 </style>

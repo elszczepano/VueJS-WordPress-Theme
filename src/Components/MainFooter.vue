@@ -36,7 +36,7 @@
                 <v-btn icon class="white--text"><v-icon>fab fa-linkedin</v-icon></v-btn>
                 <v-btn icon class="white--text"><v-icon>fab fa-stack-overflow</v-icon></v-btn>
             </v-flex>
-            <v-flex d-flex sm12 md10 class="align-center">
+            <v-flex sm12 md10 class="align-center">
                 <div class="subheading text-xs-center text-md-right pa-2">
                     Copyright &copy; {{ new Date().getFullYear() }} Dominik Szczepaniak
                 </div>

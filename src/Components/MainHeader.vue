@@ -30,7 +30,9 @@
                     </v-list>
                 </v-menu>
             </v-toolbar-items>
-            <v-btn  class="hidden-md-and-up" flat icon @click.stop="drawer = !drawer"><i class="material-icons">menu</i></v-btn>
+            <v-text-field name="input-1-3" class="hidden-sm-and-down input-group--focused" color="red lighten-1"></v-text-field>
+            <v-btn class="hidden-sm-and-down" flat icon><i class="material-icons navbar-menu__icon">search</i></v-btn>
+            <v-btn class="hidden-md-and-up" flat icon @click.stop="drawer = !drawer"><i class="material-icons">menu</i></v-btn>
         </v-toolbar>
         <v-navigation-drawer v-model="drawer" temporary absolute>
             <v-list class="pa-1">
@@ -79,7 +81,10 @@
         font-family: $logo-font;
         font-size: 2rem;
     }
-    .navbar-menu__icon , .text__red{
+    .navbar-menu__icon , .text__red {
         color: $primary-red;
+    }
+    .input-group--focused {
+        max-width: 250px;
     }
 </style>

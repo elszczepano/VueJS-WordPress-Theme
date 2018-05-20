@@ -75,9 +75,8 @@
 </script>
 
 <style lang="scss" scoped>
-    @import url('https://fonts.googleapis.com/css?family=Quicksand');
     .logo {
-        font-family: 'Quicksand', sans-serif;
+        font-family: $logo-font;
         font-size: 2rem;
     }
     .navbar-menu__icon {

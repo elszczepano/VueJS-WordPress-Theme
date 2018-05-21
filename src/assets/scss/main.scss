@@ -1,4 +1,11 @@
 @import 'variables';
+a {
+  text-decoration: none;
+  color: black;
+}
+.default--container {
+  max-width: $default-width;
+}
 .main-page--header {
   font-weight: 300;
   margin: 2rem 0;

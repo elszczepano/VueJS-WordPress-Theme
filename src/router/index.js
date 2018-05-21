@@ -1,6 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Main from '../Components/Main';
+import ArticlePage from '../Components/ArticlePage';
+import ArticlesList from '../Components/ArticlesList';
+import Page from '../Components/Page';
+import Categories from '../Components/Categories';
 
 Vue.use(Router);
 
@@ -8,8 +12,37 @@ export default new Router({
     routes: [
         {
             path: '/',
-            name: 'Main',
+            alias: '*',
+            name: 'home',
             component: Main
+        },
+        {
+            path: '/post/:url',
+            name: 'articlePage',
+            component: ArticlePage
+        },
+        {
+            path: '/page/:url',
+            name: 'page',
+            component: Page
+        },
+        {
+            path: '/posts',
+            alias: '/post',
+            name: 'articlesList',
+            component: ArticlesList
+        },
+        {
+            path: '/category',
+            alias: '/categories',
+            name: 'categories',
+            component: Categories
+        },
+        {
+            path: '/portfolio',
+            name: 'portfolio',
+            component: Portfolio
         }
-    ]
+    ],
+
 });

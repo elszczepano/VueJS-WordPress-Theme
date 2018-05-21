@@ -14,6 +14,6 @@ function load_vue_scripts() {
     wp_enqueue_style('icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false, null);
     wp_enqueue_style('font-awesome', 'https://use.fontawesome.com/releases/v5.0.13/css/all.css', false, null);
     wp_enqueue_style('style', get_template_directory_uri() . '/dist/style.css', false, null);
-    wp_enqueue_script('app.js', get_template_directory_uri() . '/dist/js/bundle.js', null, null, true);
+    wp_enqueue_script('app', get_template_directory_uri() . '/dist/js/bundle.js', null, null, true);
 }
 add_action('wp_enqueue_scripts', 'load_vue_scripts', 100);

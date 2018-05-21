@@ -1,4 +1,6 @@
 <?php
+require('posttypes.php');
+
 show_admin_bar(false);
 
 remove_action('template_redirect', 'redirect_canonical');

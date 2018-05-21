@@ -4,6 +4,7 @@ import Main from '../Components/Main';
 import ArticlePage from '../Components/ArticlePage';
 import ArticlesList from '../Components/ArticlesList';
 import Page from '../Components/Page';
+import Portfolio from '../Components/Portfolio';
 import Categories from '../Components/Categories';
 
 Vue.use(Router);

@@ -1,15 +1,16 @@
 <template>
     <v-content>
         <v-toolbar class="navbar-menu">
-            <v-toolbar-title class="logo"><span class="text__red">dev</span>szczepaniak.pl</v-toolbar-title>
+            <v-toolbar-title class="logo">
+                <router-link to="/"><span class="text__red">dev</span>szczepaniak.pl</router-link>
+            </v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
-                <v-btn flat>Start</v-btn>
                 <v-menu offset-y>
                     <v-btn flat slot="activator">Blog <i class="material-icons navbar-menu__icon">expand_more</i></v-btn>
                     <v-list>
                         <v-list-tile v-for="(item, index) in blogItems" :key="index" @click="">
-                            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                            <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
                         </v-list-tile>
                     </v-list>
                 </v-menu>
@@ -17,7 +18,7 @@
                     <v-btn flat slot="activator">Współpraca <i class="material-icons navbar-menu__icon">expand_more</i></v-btn>
                     <v-list>
                         <v-list-tile v-for="(item, index) in partnershipItems" :key="index" @click="">
-                            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                            <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
                         </v-list-tile>
                     </v-list>
                 </v-menu>
@@ -25,7 +26,7 @@
                     <v-btn flat slot="activator">Autor <i class="material-icons navbar-menu__icon">expand_more</i></v-btn>
                     <v-list>
                         <v-list-tile v-for="(item, index) in authorItems" :key="index" @click="">
-                            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                            <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
                         </v-list-tile>
                     </v-list>
                 </v-menu>
@@ -38,7 +39,7 @@
             <v-list class="pa-1">
                 <v-list-tile avatar>
                     <v-list-tile-avatar>
-                        <img src="https://randomuser.me/api/portraits/men/85.jpg" >
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg">
                     </v-list-tile-avatar>
                     <v-list-tile-content>
                         <v-list-tile-title>John Leider</v-list-tile-title>
@@ -55,19 +56,17 @@
         data: () => ({
             drawer: null,
             blogItems: [
-                { title: 'Kategorie', link: 'http://reddit.com' },
-                { title: 'Artykuły', link: 'http://reddit.com' },
-                { title: 'Ostatnio dodane', link: 'http://reddit.com' },
-                { title: 'Najpopularniejsze', link: 'http://reddit.com' }
+                { title: 'Kategorie', link: '/categories' },
+                { title: 'Artykuły', link: '/posts' }
             ],
             partnershipItems: [
-                { title: 'Oferta', link: 'http://reddit.com' }
+                { title: 'Oferta', link: '/page/oferta' }
             ],
             authorItems: [
-                { title: 'Kontakt', link: 'http://reddit.com' },
-                { title: 'O autorze', link: 'http://reddit.com' },
-                { title: 'Linki', link: 'http://reddit.com' },
-                { title: 'Portfolio', link: 'http://reddit.com' }
+                { title: 'Kontakt', link: '/page/kontakt' },
+                { title: 'O autorze', link: '/page/autor' },
+                { title: 'Linki', link: '/page/linki' },
+                { title: 'Portfolio', link: '/portfolio' }
             ]
         }),
         props: {

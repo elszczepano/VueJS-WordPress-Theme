@@ -40,7 +40,4 @@
 </script>
 
 <style scoped>
-    .default--container {
-        max-width: $default-width;
-    }
 </style>

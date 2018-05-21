@@ -10,7 +10,7 @@
         </v-card-title>
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn flat>Czytaj dalej</v-btn>
+            <v-btn flat>Czytaj dalej <i class="material-icons button--icon">chevron_right</i></v-btn>
         </v-card-actions>
     </v-card>
 </template>
@@ -22,4 +22,7 @@
 </script>
 
 <style scoped>
+    .button--icon {
+        color: $primary-red;
+    }
 </style>

@@ -24,7 +24,7 @@
             </v-flex>
             <v-flex pa-2 xs12 md5>
                 <span class="subheading">Zapisz się na newsletter:</span>
-                <v-text-field dark v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
+                <v-text-field color="white" dark v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn depressed>Zapisz się!</v-btn>

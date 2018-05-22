@@ -19,6 +19,7 @@ export default new Router({
         },
         {
             path: '/post/:url',
+            alias: '/posts/:url',
             name: 'articlePage',
             component: ArticlePage
         },

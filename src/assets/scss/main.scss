@@ -7,7 +7,7 @@ a {
   max-width: $default-width;
 }
 .red--marker {
-  color: $primary-red;
+  color: $primary-red !important;
 }
 .main-page--header {
   font-weight: 300;

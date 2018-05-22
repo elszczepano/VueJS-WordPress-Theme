@@ -1,12 +1,12 @@
 <template>
-    <v-footer  height="auto" class="blue-grey darken-4 white--text pa-2">
+    <v-footer height="auto" class="blue-grey darken-4 white--text pa-2">
         <v-layout row wrap>
             <v-flex xs12 md7>
                 <v-list two-line class="blue-grey darken-4" dark>
                     <v-subheader>Kategorie:</v-subheader>
                     <v-list-tile @click="">
                         <v-list-tile-action>
-                            <i class="material-icons list--icon">chevron_right</i>
+                            <i class="material-icons red--marker">chevron_right</i>
                         </v-list-tile-action>
                         <v-list-tile-content>
                             <v-list-tile-title>Kategoria</v-list-tile-title>
@@ -14,7 +14,7 @@
                     </v-list-tile>
                     <v-list-tile @click="">
                         <v-list-tile-action>
-                            <i class="material-icons list--icon">chevron_right</i>
+                            <i class="material-icons red--marker">chevron_right</i>
                         </v-list-tile-action>
                         <v-list-tile-content>
                             <v-list-tile-title>Kategoria</v-list-tile-title>
@@ -24,7 +24,7 @@
             </v-flex>
             <v-flex pa-2 xs12 md5>
                 <span class="subheading">Zapisz się na newsletter:</span>
-                <v-text-field color="white" dark v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
+                <v-text-field color="white" v-model="email" :rules="emailRules" label="E-mail" dark required></v-text-field>
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn depressed>Zapisz się!</v-btn>
@@ -59,7 +59,5 @@
 </script>
 
 <style scoped>
-    .list--icon {
-        color: $primary-red;
-    }
+
 </style>

@@ -1,6 +1,6 @@
 <template>
     <v-container grid-list-md>
-        <h2 class="headline main-page--header">Kategoria - ostatnio dodane</h2>
+        <h2 class="headline main-page--header"><span class="text__red">K</span>ategoria - ostatnio dodane</h2>
         <v-layout row wrap>
             <v-flex v-for="i in 4" :key="`4${i}`" xs12 md3 sm6>
                 <article-sample />

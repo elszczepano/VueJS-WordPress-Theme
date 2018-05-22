@@ -14,7 +14,7 @@
                     </v-card-title>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn flat>Czytaj dalej</v-btn>
+                        <v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn>
                     </v-card-actions>
                 </v-card>
             </v-flex>

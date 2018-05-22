@@ -6,6 +6,9 @@ a {
 .default--container {
   max-width: $default-width;
 }
+.red--marker {
+  color: $primary-red;
+}
 .main-page--header {
   font-weight: 300;
   margin: 2rem 0;

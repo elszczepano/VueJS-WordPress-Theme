@@ -4,12 +4,12 @@
         <v-layout row wrap>
             <v-flex d-flex xs12 md8>
                 <v-card>
-                    <v-card-media src="https://www.w3schools.com/html/img_girl.jpg" height="575px">
+                    <v-card-media :src="thumbnail" height="575px">
                     </v-card-media>
                     <v-card-title primary-title>
                         <div>
-                            <h3 class="headline mb-0">Kangaroo Valley Safari</h3>
-                            <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
+                            <h3 class="headline mb-0">{{title}}</h3>
+                            <div>{{description}}...</div>
                         </div>
                     </v-card-title>
                     <v-card-actions>
@@ -20,11 +20,8 @@
             </v-flex>
             <v-flex d-flex xs12 md4>
                 <v-layout row wrap>
-                    <v-flex d-flex>
-                        <article-sample />
-                    </v-flex>
-                    <v-flex d-flex>
-                        <article-sample />
+                    <v-flex v-for="i in 2" :key="`${i}`">
+                        <article-sample :fetchValue="articles[i]"  />
                     </v-flex>
                 </v-layout>
             </v-flex>
@@ -34,9 +31,23 @@
 
 <script>
     import ArticleSample from './ArticleSample';
+    import API from '../api';
     export default {
         components: {ArticleSample},
-        name: 'newest-articles'
+        name: 'newest-articles',
+        data: () => ({
+            articles: [],
+            thumbnail: '',
+            title: '',
+            description: ''
+        }),
+        mounted() {
+            API.get('posts?per_page=3')
+                .then(response => this.articles = response['data'])
+                .then(() => this.title = this.articles[0]['title']['rendered'])
+                .then(() => this.thumbnail = this.articles[0]['better_featured_image']['source_url'])
+                .then(() => this.description = this.articles[0]['content']['rendered'].slice(3, 225))
+        }
     };
 </script>
 

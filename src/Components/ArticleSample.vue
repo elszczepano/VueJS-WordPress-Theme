@@ -1,10 +1,10 @@
 <template>
     <v-card>
-        <v-card-media src="https://www.w3schools.com/html/img_girl.jpg" height="200px"></v-card-media>
+        <v-card-media :src="thumbnail" height="200px"></v-card-media>
         <v-card-title primary-title>
             <div>
-                <h3 class="headline mb-0">Kangaroo Valley Safari</h3>
-                <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
+                <h3 class="headline mb-0">{{title}}</h3>
+                <div>{{description}}...</div>
             </div>
         </v-card-title>
         <v-card-actions>
@@ -16,7 +16,25 @@
 
 <script>
     export default {
-        name: 'article-sample'
+        name: 'article-sample',
+        props: [
+            'fetchValue'
+        ],
+        data: () => ({
+            thumbnail: '',
+            title: '',
+            description: '',
+        }),
+        watch: {
+            '$props': {
+                handler: function (val) {
+                    this.title = val['fetchValue']['title']['rendered'];
+                    this.thumbnail = val['fetchValue']['better_featured_image']['source_url'];
+                    this.description = val['fetchValue']['content']['rendered'].slice(3, 100)
+                },
+                deep: true
+            }
+        }
     };
 </script>
 

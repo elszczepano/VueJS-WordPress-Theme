@@ -10,10 +10,10 @@
                    <most-popular/>
                </v-flex>
                <v-flex xs12>
-                   <main-site-categories-sample/>
+                   <main-site-categories-sample :category="promotedCategories[0]"/>
                </v-flex>
                <v-flex xs12>
-                   <main-site-categories-sample/>
+                   <main-site-categories-sample :category="promotedCategories[1]"/>
                </v-flex>
            </v-layout>
        </v-layout>
@@ -36,6 +36,18 @@
             MainHeader,
             MainFooter
         },
+        data: () => ({
+            promotedCategories: [
+                {
+                    name: "JavaScript",
+                    id: 2
+                },
+                {
+                    name: "Frontend",
+                    id: 3
+                },
+            ]
+        }),
     }
 </script>
 

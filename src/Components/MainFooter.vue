@@ -4,20 +4,12 @@
             <v-flex xs12 md7>
                 <v-list two-line class="blue-grey darken-4" dark>
                     <v-subheader>Kategorie:</v-subheader>
-                    <v-list-tile @click="">
+                    <v-list-tile v-for="i in categories.length" :key="`${i}`" @click="">
                         <v-list-tile-action>
                             <i class="material-icons red--marker">chevron_right</i>
                         </v-list-tile-action>
                         <v-list-tile-content>
-                            <v-list-tile-title>Kategoria</v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                    <v-list-tile @click="">
-                        <v-list-tile-action>
-                            <i class="material-icons red--marker">chevron_right</i>
-                        </v-list-tile-action>
-                        <v-list-tile-content>
-                            <v-list-tile-title>Kategoria</v-list-tile-title>
+                            <v-list-tile-title>{{categories[i-1].name}}</v-list-tile-title>
                         </v-list-tile-content>
                     </v-list-tile>
                 </v-list>
@@ -38,7 +30,7 @@
             </v-flex>
             <v-flex sm12 md10 class="align-center">
                 <div class="subheading text-xs-center text-md-right pa-2">
-                    Copyright &copy; {{ new Date().getFullYear() }} Dominik Szczepaniak
+                    Copyright &copy; {{ new Date().getFullYear() }}. Made with <v-icon class="red--marker" small>fas fa-heart</v-icon> by Dominik Szczepaniak
                 </div>
             </v-flex>
         </v-layout>
@@ -46,15 +38,21 @@
 </template>
 
 <script>
+    import API from '../api';
     export default {
         name: 'main-footer',
         data: () => ({
+            categories: [],
             email: '',
             emailRules: [
                 v => !!v || 'E-mail is required',
                 v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
             ]
-        })
+        }),
+        mounted() {
+            API.get('categories')
+                .then(response => this.categories = response['data'])
+        }
     };
 </script>
 

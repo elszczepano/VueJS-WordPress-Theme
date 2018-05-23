@@ -1,14 +1,34 @@
 <?php
 require('posttypes.php');
 
+//enable thumbnails
+
+add_theme_support( 'post-thumbnails' );
+
+//show acf fields in API
+
+add_filter( 'acf/rest_api/field_settings/show_in_rest', '__return_true' );
+
+//disable admin bar
+
 show_admin_bar(false);
 
-remove_action('template_redirect', 'redirect_canonical');
+//unregister tags
 
+function myprefix_unregister_tags() {
+    unregister_taxonomy_for_object_type('post_tag', 'post');
+}
+add_action('init', 'myprefix_unregister_tags');
+
+//remove redirects
+
+remove_action('template_redirect', 'redirect_canonical');
 function remove_redirects() {
     add_rewrite_rule('^/(.+)/?', 'index.php', 'top');
 }
 add_action('init', 'remove_redirects');
+
+//load scripts
 
 function load_vue_scripts() {
 

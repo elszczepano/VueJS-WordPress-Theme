@@ -3,11 +3,8 @@
         <main-header/>
         <v-layout class="mx-auto default--container">
             <v-flex xs12 ma-2>
-                <h2 class="display-2 text-xs-center main-page--header"><span class="text__red">L</span>ista artykułów</h2>
-                <article-list-sample/>
-                <article-list-sample/>
-                <article-list-sample/>
-                <article-list-sample/>
+                <h2 class="display-2 text-xs-center main-page--header">Lista artykułów</h2>
+                <article-list-sample :fetchValue="articles[index]" v-for="(article, index) in articles" :key="`${index}`" />
             </v-flex>
         </v-layout>
         <main-footer />
@@ -18,14 +15,21 @@
     import MainHeader from './MainHeader';
     import MainFooter from './MainFooter';
     import ArticleListSample from './ArticleListSample';
-
+    import API from '../api';
     export default {
         components: {
             ArticleListSample,
             MainFooter,
             MainHeader
         },
-        name: 'articles-list'
+        name: 'articles-list',
+        data: () => ({
+            articles: []
+        }),
+        mounted() {
+            API.get(`posts?per_page=10`)
+                .then(response => this.articles = response['data'])
+        }
     };
 </script>
 

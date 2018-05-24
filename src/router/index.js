@@ -4,6 +4,7 @@ import Main from '../Components/Main';
 import ArticlePage from '../Components/ArticlePage';
 import ArticlesList from '../Components/ArticlesList';
 import Page from '../Components/Page';
+import Search from '../Components/Search';
 import Portfolio from '../Components/Portfolio';
 import Categories from '../Components/Categories';
 
@@ -40,6 +41,11 @@ export default new Router({
             name: 'categories',
             component: Categories
         },
+        {
+            path: '/search',
+            name: 'search',
+            component: Search
+        },,
         {
             path: '/portfolio',
             name: 'portfolio',

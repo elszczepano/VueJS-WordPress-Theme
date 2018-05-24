@@ -4,7 +4,7 @@
         <v-card-title primary-title>
             <div>
                 <h3 class="headline mb-0">{{title}}</h3>
-                <div>{{description}}...</div>
+                <div>{{description | slice}}...</div>
             </div>
         </v-card-title>
         <v-card-actions>
@@ -23,14 +23,19 @@
         data: () => ({
             thumbnail: '',
             title: '',
-            description: '',
+            description: ''
         }),
+        filters: {
+            slice: function(value) {
+                return value.slice(3, 100);
+            }
+        },
         watch: {
             '$props': {
                 handler: function (val) {
                     this.title = val['fetchValue']['title']['rendered'];
                     this.thumbnail = val['fetchValue']['better_featured_image']['source_url'];
-                    this.description = val['fetchValue']['content']['rendered'].slice(3, 100)
+                    this.description = val['fetchValue']['excerpt']['rendered']
                 },
                 deep: true
             }

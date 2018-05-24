@@ -9,7 +9,7 @@
                     <v-card-title primary-title>
                         <div>
                             <h3 class="headline mb-0">{{title}}</h3>
-                            <div>{{description}}...</div>
+                            <div>{{description | slice}}...</div>
                         </div>
                     </v-card-title>
                     <v-card-actions>
@@ -41,12 +41,17 @@
             title: '',
             description: ''
         }),
+        filters: {
+            slice: function(value) {
+                return value.slice(3, 225);
+            }
+        },
         mounted() {
             API.get('posts?per_page=3')
                 .then(response => this.articles = response['data'])
                 .then(() => this.title = this.articles[0]['title']['rendered'])
                 .then(() => this.thumbnail = this.articles[0]['better_featured_image']['source_url'])
-                .then(() => this.description = this.articles[0]['content']['rendered'].slice(3, 225))
+                .then(() => this.description = this.articles[0]['excerpt']['rendered'])
         }
     };
 </script>

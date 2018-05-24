@@ -31,8 +31,8 @@
                     </v-list>
                 </v-menu>
             </v-toolbar-items>
-            <v-text-field v-model="searchPhrase" name="input-1-3" class="hidden-sm-and-down input-group--focused" color="red lighten-1"></v-text-field>
-            <v-btn class="hidden-sm-and-down" flat icon><i class="material-icons">search</i></v-btn>
+            <v-text-field @keyup.enter="search" v-model="searchPhrase" name="input-1-3" class="hidden-sm-and-down input-group--focused" color="red lighten-1"></v-text-field>
+            <v-btn @click="search" class="hidden-sm-and-down" flat icon><i class="material-icons">search</i></v-btn>
             <v-btn class="hidden-md-and-up" flat icon @click.stop="drawer = !drawer"><i class="material-icons">menu</i></v-btn>
         </v-toolbar>
         <v-navigation-drawer v-model="drawer" temporary absolute>
@@ -51,6 +51,7 @@
 </template>
 
 <script>
+    import router from '../router';
     export default {
         name: "main-header",
         data: () => ({
@@ -72,6 +73,12 @@
         }),
         props: {
             source: String
+        },
+        methods: {
+            search() {
+                if(!this.searchPhrase) return;
+                router.push({ path: 'search', query: { s: this.searchPhrase }})
+            }
         }
     }
 </script>

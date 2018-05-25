@@ -2,20 +2,23 @@
     <v-container grid-list-md >
         <v-layout class="mx-auto default--container article--header">
             <v-flex xs12>
-                <v-jumbotron src="https://www.w3schools.com/html/img_girl.jpg"></v-jumbotron>
+                <v-jumbotron :src="thumbnail"></v-jumbotron>
                 <v-layout row wrap>
                     <v-flex text-md-center pa-3 xs12>
-                        <h3 class="display-1">12 bibliotek Javascript, które koniecznie musisz poznać!</h3>
+                        <h3 class="display-1">{{title}}</h3>
                     </v-flex>
                     <v-layout text-xs-center row wrap>
                         <v-flex xs12 sm4 class="align-center">
-                            <strong><v-btn class="red--marker" icon><v-icon small>fas fa-tags</v-icon></v-btn> Javascript</strong>
+                            <strong v-for="index in categoriesNames.length" :key="`${index}`">
+                                <v-btn class="red--marker" icon><v-icon small>fas fa-tags</v-icon></v-btn>
+                                <span>{{categoriesNames[index-1]}}</span>
+                            </strong>
                         </v-flex>
                         <v-flex xs12 sm4 class="align-center">
-                            <strong><v-btn class="red--marker" icon><v-icon small>fas fa-user</v-icon></v-btn> Dominik Szczepaniak</strong>
+                            <strong><v-btn class="red--marker" icon><v-icon small>fas fa-user</v-icon></v-btn> {{author}}</strong>
                         </v-flex>
                         <v-flex xs12 sm4 class="align-center">
-                            <strong><v-btn class="red--marker" icon><v-icon small>fas fa-calendar-alt</v-icon></v-btn> 04/10/2017</strong>
+                            <strong><v-btn class="red--marker" icon><v-icon small>fas fa-calendar-alt</v-icon></v-btn> {{date | slice}}</strong>
                         </v-flex>
                     </v-layout>
                 </v-layout>
@@ -25,8 +28,54 @@
 </template>
 
 <script>
+    import API from '../api';
     export default {
-        name: 'article-header'
+        name: 'article-header',
+        props: [
+            'details'
+        ],
+        data: () => ({
+            id: 0,
+            thumbnail: '',
+            title: '',
+            authorId: '',
+            author: '',
+            date: '',
+            categoriesIds: [],
+            categoriesNames: [],
+        }),
+        methods: {
+          getAuthor() {
+              API.get(`users/${this.authorId}`)
+                  .then(response => this.author = response['data']['name']);
+          },
+          getCategories() {
+              for(let index of this.categoriesIds) {
+                  API.get(`categories/${index}`)
+                      .then(response => this.categoriesNames.push(response['data']['name']));
+              }
+          }
+        },
+        filters: {
+            slice: function(value) {
+                return value.slice(0, 10);
+            }
+        },
+        watch: {
+            '$props': {
+                handler: function (val) {
+                    this.categoriesNames = [];
+                    this.title = val['details']['title']['rendered'];
+                    this.thumbnail = val['details']['better_featured_image']['source_url'];
+                    this.date = val['details']['date'];
+                    this.authorId = val['details']['author'];
+                    this.categoriesIds = [...val['details']['categories']];
+                    this.getAuthor();
+                    this.getCategories();
+                },
+                deep: true
+            }
+        }
     };
 </script>
 

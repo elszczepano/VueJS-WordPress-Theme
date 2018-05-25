@@ -11,7 +11,7 @@
                         <div>{{description | slice}}...</div>
                         <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn>
+                            <router-link :to="`post/${id}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
                         </v-card-actions>
                     </v-flex>
                 </v-layout>
@@ -27,6 +27,7 @@
             'fetchValue'
         ],
         data: () => ({
+            id: 0,
             thumbnail: '',
             title: '',
             description: ''
@@ -41,7 +42,8 @@
                 handler: function (val) {
                     this.title = val['fetchValue']['title']['rendered'];
                     this.thumbnail = val['fetchValue']['better_featured_image']['source_url'];
-                    this.description = val['fetchValue']['excerpt']['rendered']
+                    this.description = val['fetchValue']['excerpt']['rendered'];
+                    this.id = val['fetchValue']['id'];
                 },
                 deep: true
             }
@@ -50,6 +52,7 @@
             this.title = this.fetchValue['title']['rendered'];
             this.thumbnail = this.fetchValue['better_featured_image']['source_url'];
             this.description = this.fetchValue['excerpt']['rendered'];
+            this.id = this.fetchValue['id'];
         }
     };
 </script>

@@ -4,13 +4,13 @@
         <v-layout class="mx-auto default--container">
             <v-layout row wrap>
                 <v-flex xs12>
-                    <article-header/>
+                    <article-header :details="article"/>
                 </v-flex>
                 <v-flex xs12>
-                    <article-content />
+                    <article-content :details="article"/>
                 </v-flex>
                 <v-flex xs12>
-                    <comments/>
+                    <comments :details="article"/>
                 </v-flex>
             </v-layout>
         </v-layout>
@@ -24,7 +24,7 @@
     import ArticleHeader from './ArticleHeader';
     import Comments from './Comments';
     import ArticleContent from './ArticleContent';
-
+    import API from '../api';
     export default {
         components: {
             ArticleContent,
@@ -33,7 +33,24 @@
             MainFooter,
             MainHeader
         },
-        name: 'article-page'
+        data: () => ({
+            article: []
+        }),
+        name: 'article-page',
+        methods: {
+            loadContent() {
+                API.get(`posts/${this.$route.params.id}`)
+                    .then(response => this.article = response['data']);
+            }
+        },
+        watch: {
+            '$route' () {
+                this.loadContent();
+            }
+        },
+        mounted() {
+            this.loadContent();
+        }
     };
 </script>
 

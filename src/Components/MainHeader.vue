@@ -9,7 +9,7 @@
                 <v-menu offset-y>
                     <v-btn flat slot="activator">Blog <i class="material-icons red--marker">expand_more</i></v-btn>
                     <v-list>
-                        <v-list-tile v-for="(item, index) in blogItems" :key="index" @click="">
+                        <v-list-tile v-for="(item, index) in blogItems" :key="index">
                             <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
                         </v-list-tile>
                     </v-list>
@@ -17,7 +17,7 @@
                 <v-menu offset-y>
                     <v-btn flat slot="activator">Współpraca <i class="material-icons red--marker">expand_more</i></v-btn>
                     <v-list>
-                        <v-list-tile v-for="(item, index) in partnershipItems" :key="index" @click="">
+                        <v-list-tile v-for="(item, index) in partnershipItems" :key="index">
                             <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
                         </v-list-tile>
                     </v-list>
@@ -25,7 +25,7 @@
                 <v-menu offset-y>
                     <v-btn flat slot="activator">Autor <i class="material-icons red--marker">expand_more</i></v-btn>
                     <v-list>
-                        <v-list-tile v-for="(item, index) in authorItems" :key="index" @click="">
+                        <v-list-tile v-for="(item, index) in authorItems" :key="index">
                             <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
                         </v-list-tile>
                     </v-list>

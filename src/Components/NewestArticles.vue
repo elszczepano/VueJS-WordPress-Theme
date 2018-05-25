@@ -14,7 +14,7 @@
                     </v-card-title>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn>
+                        <router-link :to="`post/${id}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
                     </v-card-actions>
                 </v-card>
             </v-flex>
@@ -37,6 +37,7 @@
         name: 'newest-articles',
         data: () => ({
             articles: [],
+            id: 0,
             thumbnail: '',
             title: '',
             description: ''
@@ -49,9 +50,12 @@
         mounted() {
             API.get('posts?per_page=3')
                 .then(response => this.articles = response['data'])
-                .then(() => this.title = this.articles[0]['title']['rendered'])
-                .then(() => this.thumbnail = this.articles[0]['better_featured_image']['source_url'])
-                .then(() => this.description = this.articles[0]['excerpt']['rendered'])
+                .then(() => {
+                    this.title = this.articles[0]['title']['rendered'];
+                    this.thumbnail = this.articles[0]['better_featured_image']['source_url'];
+                    this.description = this.articles[0]['excerpt']['rendered'];
+                    this.id = this.articles[0]['id'];
+                });
         }
     };
 </script>

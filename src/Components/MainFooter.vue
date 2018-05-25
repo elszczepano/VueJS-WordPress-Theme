@@ -16,10 +16,10 @@
             </v-flex>
             <v-flex pa-2 xs12 md5>
                 <span class="subheading">Zapisz się na newsletter:</span>
-                <v-text-field color="white" v-model="email" :rules="emailRules" label="E-mail" dark required></v-text-field>
+                <v-text-field @keyup.enter="subscribe" color="white" v-model="email" :rules="emailRules" label="E-mail" dark required></v-text-field>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn depressed>Zapisz się!</v-btn>
+                    <v-btn @click="subscribe" depressed>Zapisz się!</v-btn>
                 </v-card-actions>
             </v-flex>
             <v-flex d-flex sm12 md2>
@@ -36,6 +36,7 @@
 
 <script>
     import API from '../api';
+    import router from '../router';
     export default {
         name: 'main-footer',
         data: () => ({
@@ -52,6 +53,16 @@
                 v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
             ]
         }),
+        methods: {
+          subscribe() {
+              if(!this.email) return;
+              API.post('http://localhost/VueWP/wp-json/newsletter/v1/subscribe',
+                  {
+                      email: this.email
+                  })
+                  .then(() => router.push({ path: 'subscribed'}))
+          }
+        },
         mounted() {
             API.get('categories')
                 .then(response => this.categories = response['data'])

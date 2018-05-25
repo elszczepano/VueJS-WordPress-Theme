@@ -5,6 +5,7 @@ import ArticlePage from '../Components/ArticlePage';
 import ArticlesList from '../Components/ArticlesList';
 import Page from '../Components/Page';
 import Search from '../Components/Search';
+import Subscribed from '../Components/Subscribed';
 import Portfolio from '../Components/Portfolio';
 import Categories from '../Components/Categories';
 
@@ -19,13 +20,13 @@ export default new Router({
             component: Main
         },
         {
-            path: '/post/:url',
-            alias: '/posts/:url',
+            path: '/post/:id',
+            alias: '/posts/:id',
             name: 'articlePage',
             component: ArticlePage
         },
         {
-            path: '/page/:url',
+            path: '/page/:id',
             name: 'page',
             component: Page
         },
@@ -45,11 +46,16 @@ export default new Router({
             path: '/search',
             name: 'search',
             component: Search
-        },,
+        },
         {
             path: '/portfolio',
             name: 'portfolio',
             component: Portfolio
+        },
+        {
+            path: '/subscribed',
+            name: 'subscribed',
+            component: Subscribed
         }
     ],
 

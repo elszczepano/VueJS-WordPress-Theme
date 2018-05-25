@@ -2,8 +2,8 @@
     <v-container grid-list-md>
         <h2 class="headline main-page--header">Najpopularniejsze artykuły</h2>
         <v-layout row wrap>
-            <v-flex v-for="i in 3" :key="`${i}`" xs12 sm4>
-                <article-sample :fetchValue="articles[i]" />
+            <v-flex v-for="index in 3" :key="`${index}`" xs12 sm4>
+                <article-sample :fetchValue="articles[index-1]" />
             </v-flex>
         </v-layout>
     </v-container>

@@ -23,10 +23,7 @@
                 </v-card-actions>
             </v-flex>
             <v-flex d-flex sm12 md2>
-                <v-btn icon class="white--text"><v-icon>fab fa-facebook</v-icon></v-btn>
-                <v-btn icon class="white--text"><v-icon>fab fa-github</v-icon></v-btn>
-                <v-btn icon class="white--text"><v-icon>fab fa-linkedin</v-icon></v-btn>
-                <v-btn icon class="white--text"><v-icon>fab fa-stack-overflow</v-icon></v-btn>
+                <v-btn v-for="(item, index) in socialMedia" :key="index" :href="item.link" icon class="white--text"><v-icon>{{item.icon}}</v-icon></v-btn>
             </v-flex>
             <v-flex sm12 md10 class="align-center">
                 <div class="subheading text-xs-center text-md-right pa-2">
@@ -42,6 +39,12 @@
     export default {
         name: 'main-footer',
         data: () => ({
+            socialMedia: [
+                { icon: 'fab fa-facebook', link: 'https://www.facebook.com/dominikszczepaniak98' },
+                { icon: 'fab fa-github', link: 'https://github.com/elszczepano'},
+                { icon: 'fab fa-linkedin', link: 'https://www.linkedin.com/in/dominik-szczepaniak/' },
+                { icon: 'fab fa-stack-overflow', link: 'https://stackoverflow.com/users/8209527/elszczepano' }
+            ],
             categories: [],
             email: '',
             emailRules: [

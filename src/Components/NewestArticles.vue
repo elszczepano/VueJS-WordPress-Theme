@@ -57,4 +57,9 @@
 </script>
 
 <style scoped>
+    @media only screen and (max-width: 600px) {
+        .main-page--header {
+            font-size: 3rem !important;
+        }
+    }
 </style>

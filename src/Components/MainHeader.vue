@@ -36,15 +36,49 @@
             <v-btn class="hidden-md-and-up" flat icon @click.stop="drawer = !drawer"><i class="material-icons">menu</i></v-btn>
         </v-toolbar>
         <v-navigation-drawer v-model="drawer" temporary absolute>
-            <v-list class="pa-1">
-                <v-list-tile avatar>
-                    <v-list-tile-avatar>
-                        <img src="https://randomuser.me/api/portraits/men/85.jpg">
-                    </v-list-tile-avatar>
-                    <v-list-tile-content>
-                        <v-list-tile-title>John Leider</v-list-tile-title>
-                    </v-list-tile-content>
+            <v-list>
+                <v-list-tile>
+                    <v-list-tile-title class="title text-xs-center logo">
+                        <router-link to="/"><span class="red--marker">dev</span>szczepaniak.pl</router-link>
+                    </v-list-tile-title>
                 </v-list-tile>
+            </v-list>
+            <v-list>
+                <v-list-group prepend-icon="school" lazy>
+                    <v-list-tile slot="activator">
+                        <v-list-tile-title>Blog</v-list-tile-title>
+                    </v-list-tile>
+                    <v-list-tile v-for="(item, index) in blogItems" :key="index">
+                        <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
+                    </v-list-tile>
+                </v-list-group>
+                <v-list-group prepend-icon="group" lazy>
+                    <v-list-tile slot="activator">
+                        <v-list-tile-title>Współpraca</v-list-tile-title>
+                    </v-list-tile>
+                    <v-list-tile v-for="(item, index) in partnershipItems" :key="index">
+                        <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
+                    </v-list-tile>
+                </v-list-group>
+                <v-list-group prepend-icon="account_circle" lazy>
+                    <v-list-tile slot="activator">
+                        <v-list-tile-title>Autor</v-list-tile-title>
+                    </v-list-tile>
+                    <v-list-tile v-for="(item, index) in authorItems" :key="index">
+                        <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
+                    </v-list-tile>
+                </v-list-group>
+                <v-list-group prepend-icon="link" lazy>
+                    <v-list-tile slot="activator">
+                        <v-list-tile-title>Linki</v-list-tile-title>
+                    </v-list-tile>
+                    <v-list-tile :href="item.link" v-for="(item, index) in socialMedia" :key="index">
+                        <v-list-tile-action>
+                            <v-icon>{{item.icon}}</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-title>{{item.name}}</v-list-tile-title>
+                    </v-list-tile>
+                </v-list-group>
             </v-list>
         </v-navigation-drawer>
     </v-content>
@@ -69,6 +103,12 @@
                 { title: 'O autorze', link: '/page/autor' },
                 { title: 'Linki', link: '/page/linki' },
                 { title: 'Portfolio', link: '/portfolio' }
+            ],
+            socialMedia: [
+                { icon: 'fab fa-facebook', name: 'Facebook', link: 'https://www.facebook.com/dominikszczepaniak98' },
+                { icon: 'fab fa-github', name: 'Github', link: 'https://github.com/elszczepano'},
+                { icon: 'fab fa-linkedin', name: 'LinkedIn', link: 'https://www.linkedin.com/in/dominik-szczepaniak/' },
+                { icon: 'fab fa-stack-overflow', name: 'Stack Overflow', link: 'https://stackoverflow.com/users/8209527/elszczepano' }
             ]
         }),
         props: {

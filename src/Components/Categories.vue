@@ -40,17 +40,13 @@
         }),
         filters: {
             polishGrammar: function(value) {
+                if(!((value-2)%10)||!((value-3)%10)||!((value-4)%10)) return `${value} wpisy`;
                 switch(value) {
                     case 0:
                         return `brak wpisów`;
                         break;
                     case 1:
                         return `${value} wpis`;
-                        break;
-                    case 2 :
-                    case 3 :
-                    case 4 :
-                        return `${value} wpisy`;
                         break;
                     default:
                         return `${value} wpisów`;

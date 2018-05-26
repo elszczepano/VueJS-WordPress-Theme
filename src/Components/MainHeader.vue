@@ -117,7 +117,7 @@
         methods: {
             search() {
                 if(!this.searchPhrase) return;
-                router.push({ path: 'search', query: { s: this.searchPhrase }})
+                router.push({ path: '/search', query: { s: this.searchPhrase }})
             }
         }
     }

@@ -1,6 +1,13 @@
 <template>
     <v-app>
         <main-header/>
+        <v-layout class="mx-auto default--container" my-5>
+            <v-layout row wrap text-xs-center>
+                <v-flex xs12 my-5><v-icon class="subscribed--icon red--marker">far fa-envelope</v-icon></v-flex>
+                <v-flex xs12 my-5><h2 class="display-2">Dzięki za zapisanie się na mój newsletter!</h2></v-flex>
+                <v-flex xs12 my-5><router-link to="/"><v-btn color="error">Powrót na stronę główną</v-btn></router-link></v-flex>
+            </v-layout>
+        </v-layout>
         <main-footer/>
     </v-app>
 </template>
@@ -18,5 +25,12 @@
 </script>
 
 <style scoped>
-
+    .subscribed--icon {
+        font-size: 25rem;
+    }
+    @media only screen and (max-width: 600px) {
+        .subscribed--icon {
+            font-size: 12rem;
+        }
+    }
 </style>

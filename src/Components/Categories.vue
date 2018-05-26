@@ -7,17 +7,19 @@
             </v-flex>
             <v-flex xs12>
                 <v-list class="grey lighten-5" three-line>
-                    <v-list-tile v-for="i in categories.length" :key="`${i}`" @click="">
-                        <v-list-tile-action>
-                            <i class="material-icons red--marker">chevron_right</i>
-                        </v-list-tile-action>
-                        <v-list-tile-content>
-                            <v-list-tile-title>{{categories[i-1].name}}</v-list-tile-title>
-                        </v-list-tile-content>
-                        <v-list-tile-action>
-                            {{categories[i-1].count | polishGrammar}}
-                        </v-list-tile-action>
-                    </v-list-tile>
+                    <router-link v-for="(category, index) in categories" :key="`${index}`" :to="`/category/${category.id}`">
+                        <v-list-tile  @click="">
+                            <v-list-tile-action>
+                                <i class="material-icons red--marker">chevron_right</i>
+                            </v-list-tile-action>
+                            <v-list-tile-content>
+                                <v-list-tile-title>{{category.name}}</v-list-tile-title>
+                            </v-list-tile-content>
+                            <v-list-tile-action>
+                                {{category.count | polishGrammar}}
+                            </v-list-tile-action>
+                        </v-list-tile>
+                    </router-link>
                 </v-list>
             </v-flex>
         </v-layout>

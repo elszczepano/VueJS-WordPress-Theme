@@ -4,12 +4,12 @@
             <v-flex xs12 md7>
                 <v-list two-line class="blue-grey darken-4" dark>
                     <v-subheader>Kategorie:</v-subheader>
-                    <v-list-tile v-for="i in categories.length" :key="`${i}`" @click="">
+                    <v-list-tile v-for="(category, index) in categories" :key="`${index}`" @click="">
                         <v-list-tile-action>
                             <i class="material-icons red--marker">chevron_right</i>
                         </v-list-tile-action>
                         <v-list-tile-content>
-                            <v-list-tile-title>{{categories[i-1].name}}</v-list-tile-title>
+                            <v-list-tile-title><router-link class="white--text" :to="`/category/${category.id}`">{{category.name}}</router-link></v-list-tile-title>
                         </v-list-tile-content>
                     </v-list-tile>
                 </v-list>

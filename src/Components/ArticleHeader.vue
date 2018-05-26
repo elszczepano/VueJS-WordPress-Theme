@@ -9,9 +9,9 @@
                     </v-flex>
                     <v-layout text-xs-center row wrap>
                         <v-flex xs12 sm4 class="align-center">
-                            <strong v-for="index in categoriesNames.length" :key="`${index}`">
+                            <strong v-for="(category, index) in categoriesNames" :key="`${index}`">
                                 <v-btn class="red--marker" icon><v-icon small>fas fa-tags</v-icon></v-btn>
-                                <span>{{categoriesNames[index-1]}}</span>
+                                <router-link :to="`/category/${categoriesIds[index]}`"><span>{{category}}</span></router-link>
                             </strong>
                         </v-flex>
                         <v-flex xs12 sm4 class="align-center">

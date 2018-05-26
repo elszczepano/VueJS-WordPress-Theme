@@ -8,6 +8,7 @@ import Search from '../Components/Search';
 import Subscribed from '../Components/Subscribed';
 import Portfolio from '../Components/Portfolio';
 import Categories from '../Components/Categories';
+import CategoryArticles from '../Components/CategoryArticles';
 
 Vue.use(Router);
 
@@ -37,8 +38,12 @@ export default new Router({
             component: ArticlesList
         },
         {
-            path: '/category',
-            alias: '/categories',
+            path: '/category/:id',
+            name: 'categoryArticle',
+            component: CategoryArticles
+        },
+        {
+            path: '/categories',
             name: 'categories',
             component: Categories
         },

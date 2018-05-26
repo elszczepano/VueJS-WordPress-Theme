@@ -18,7 +18,7 @@
             </v-flex>
             <v-flex pa-2 xs12 md5>
                 <span class="subheading">Zapisz się na newsletter:</span>
-                <v-text-field @keyup.enter="subscribe" color="white" v-model="email" :rules="emailRules" label="E-mail" dark required></v-text-field>
+                <v-text-field v-validate="'required|email'" name="newsletter" @keyup.enter="subscribe" color="white" v-model="email" :rules="emailRules" label="E-mail" dark required></v-text-field>
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn @click="subscribe" depressed>Zapisz się!</v-btn>
@@ -57,7 +57,7 @@
         }),
         methods: {
           subscribe() {
-              if(!this.email) return;
+              if(!this.email || this.errors.has('newsletter')) return;
               API.post('http://localhost/VueWP/wp-json/newsletter/v1/subscribe',
                   {
                       email: this.email

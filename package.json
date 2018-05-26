@@ -44,6 +44,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "material-design-icons": "^3.0.1",
+    "vee-validate": "^2.0.9",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
     "vuetify": "^1.0.17"

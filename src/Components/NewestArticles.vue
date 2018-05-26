@@ -14,7 +14,7 @@
                     </v-card-title>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <router-link :to="`post/${id}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
+                        <router-link :to="`/post/${id}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
                     </v-card-actions>
                 </v-card>
             </v-flex>

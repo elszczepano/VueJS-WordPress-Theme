@@ -4,14 +4,16 @@
             <v-flex xs12 md7>
                 <v-list two-line class="blue-grey darken-4" dark>
                     <v-subheader>Kategorie:</v-subheader>
-                    <v-list-tile v-for="(category, index) in categories" :key="`${index}`" @click="">
-                        <v-list-tile-action>
-                            <i class="material-icons red--marker">chevron_right</i>
-                        </v-list-tile-action>
-                        <v-list-tile-content>
-                            <v-list-tile-title><router-link class="white--text" :to="`/category/${category.id}`">{{category.name}}</router-link></v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
+                    <router-link v-for="(category, index) in categories" :key="`${index}`" class="white--text" :to="`/category/${category.id}`">
+                        <v-list-tile @click="">
+                            <v-list-tile-action>
+                                <i class="material-icons red--marker">chevron_right</i>
+                            </v-list-tile-action>
+                            <v-list-tile-content>
+                                <v-list-tile-title>{{category.name}}</v-list-tile-title>
+                            </v-list-tile-content>
+                        </v-list-tile>
+                    </router-link>
                 </v-list>
             </v-flex>
             <v-flex pa-2 xs12 md5>
@@ -60,7 +62,7 @@
                   {
                       email: this.email
                   })
-                  .then(() => router.push({ path: 'subscribed'}))
+                  .then(() => router.push({ path: '/subscribed'}))
           }
         },
         mounted() {

@@ -25,6 +25,7 @@
     import Comments from './Comments';
     import ArticleContent from './ArticleContent';
     import API from '../api';
+    import router from '../router';
     export default {
         components: {
             ArticleContent,
@@ -40,7 +41,10 @@
         methods: {
             loadContent() {
                 API.get(`posts/${this.$route.params.id}`)
-                    .then(response => this.article = response['data']);
+                    .then(response => this.article = response['data'])
+                    .catch(error => {
+                        router.push({path: '/'});
+                    });
             }
         },
         watch: {

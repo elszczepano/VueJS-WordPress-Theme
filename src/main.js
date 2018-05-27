@@ -5,7 +5,6 @@ import Vuetify from 'vuetify';
 import VeeValidate from 'vee-validate';
 import 'vuetify/dist/vuetify.min.css';
 
-
 Vue.use(VeeValidate);
 Vue.use(Vuetify);
 Vue.config.productionTip = false;

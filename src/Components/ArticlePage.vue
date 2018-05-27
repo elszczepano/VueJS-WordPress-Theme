@@ -42,7 +42,7 @@
             loadContent() {
                 API.get(`posts/${this.$route.params.id}`)
                     .then(response => this.article = response['data'])
-                    .catch(error => {
+                    .catch(() => {
                         router.push({path: '/'});
                     });
             }

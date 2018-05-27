@@ -7,7 +7,7 @@
                     Wyniki wyszukiwania dla:
                     <span class="text__red">{{this.$route.query.s}}</span>
                 </h2>
-                <article-list-sample :fetchValue="articles[index]" v-for="(article, index) in articles" :key="`${index}`" />
+                <article-list-sample :details="articles[index]" v-for="(article, index) in articles" :key="`${index}`" />
                 <h3 class="text-xs-center" v-show="!articles.length">Brak wyników wyszukiwania...</h3>
             </v-flex>
         </v-layout>

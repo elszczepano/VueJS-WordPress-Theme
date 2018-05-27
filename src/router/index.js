@@ -27,7 +27,7 @@ export default new Router({
             component: ArticlePage
         },
         {
-            path: '/page/:id',
+            path: '/page/:slug',
             name: 'page',
             component: Page
         },

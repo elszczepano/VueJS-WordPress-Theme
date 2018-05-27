@@ -9,25 +9,31 @@
                 <v-menu offset-y>
                     <v-btn flat slot="activator">Blog <i class="material-icons red--marker">expand_more</i></v-btn>
                     <v-list>
-                        <v-list-tile v-for="(item, index) in blogItems" :key="index">
-                            <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
-                        </v-list-tile>
+                        <router-link v-for="(item, index) in blogItems" :key="index" :to="item.link">
+                            <v-list-tile>
+                                <v-list-tile-title>{{item.title}}</v-list-tile-title>
+                            </v-list-tile>
+                        </router-link>
                     </v-list>
                 </v-menu>
                 <v-menu offset-y>
                     <v-btn flat slot="activator">Współpraca <i class="material-icons red--marker">expand_more</i></v-btn>
                     <v-list>
-                        <v-list-tile v-for="(item, index) in partnershipItems" :key="index">
-                            <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
-                        </v-list-tile>
+                        <router-link v-for="(item, index) in partnershipItems" :key="index" :to="item.link">
+                            <v-list-tile>
+                                <v-list-tile-title>{{item.title}}</v-list-tile-title>
+                            </v-list-tile>
+                        </router-link>
                     </v-list>
                 </v-menu>
                 <v-menu offset-y>
                     <v-btn flat slot="activator">Autor <i class="material-icons red--marker">expand_more</i></v-btn>
                     <v-list>
-                        <v-list-tile v-for="(item, index) in authorItems" :key="index">
-                            <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
-                        </v-list-tile>
+                        <router-link v-for="(item, index) in authorItems" :key="index" :to="item.link">
+                            <v-list-tile>
+                                <v-list-tile-title>{{item.title}}</v-list-tile-title>
+                            </v-list-tile>
+                        </router-link>
                     </v-list>
                 </v-menu>
             </v-toolbar-items>
@@ -48,25 +54,31 @@
                     <v-list-tile slot="activator">
                         <v-list-tile-title>Blog</v-list-tile-title>
                     </v-list-tile>
-                    <v-list-tile v-for="(item, index) in blogItems" :key="index">
-                        <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
-                    </v-list-tile>
+                    <router-link v-for="(item, index) in blogItems" :key="index" :to="item.link">
+                        <v-list-tile>
+                            <v-list-tile-title>{{item.title}}</v-list-tile-title>
+                        </v-list-tile>
+                    </router-link>
                 </v-list-group>
                 <v-list-group prepend-icon="group" lazy>
                     <v-list-tile slot="activator">
                         <v-list-tile-title>Współpraca</v-list-tile-title>
                     </v-list-tile>
-                    <v-list-tile v-for="(item, index) in partnershipItems" :key="index">
-                        <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
-                    </v-list-tile>
+                    <router-link v-for="(item, index) in partnershipItems" :key="index" :to="item.link">
+                        <v-list-tile>
+                            <v-list-tile-title>{{item.title}}</v-list-tile-title>
+                        </v-list-tile>
+                    </router-link>
                 </v-list-group>
                 <v-list-group prepend-icon="account_circle" lazy>
                     <v-list-tile slot="activator">
                         <v-list-tile-title>Autor</v-list-tile-title>
                     </v-list-tile>
-                    <v-list-tile v-for="(item, index) in authorItems" :key="index">
-                        <v-list-tile-title><router-link :to="item.link">{{item.title}}</router-link></v-list-tile-title>
-                    </v-list-tile>
+                    <router-link v-for="(item, index) in authorItems" :key="index" :to="item.link">
+                        <v-list-tile>
+                            <v-list-tile-title>{{item.title}}</v-list-tile-title>
+                        </v-list-tile>
+                    </router-link>
                 </v-list-group>
                 <v-list-group prepend-icon="link" lazy>
                     <v-list-tile slot="activator">
@@ -86,6 +98,7 @@
 
 <script>
     import router from '../router';
+    import API from '../api';
     export default {
         name: "main-header",
         data: () => ({
@@ -95,13 +108,8 @@
                 { title: 'Kategorie', link: '/categories' },
                 { title: 'Artykuły', link: '/posts' }
             ],
-            partnershipItems: [
-                { title: 'Oferta', link: '/page/oferta' }
-            ],
+            partnershipItems: [],
             authorItems: [
-                { title: 'Kontakt', link: '/page/kontakt' },
-                { title: 'O autorze', link: '/page/autor' },
-                { title: 'Linki', link: '/page/linki' },
                 { title: 'Portfolio', link: '/portfolio' }
             ],
             socialMedia: [
@@ -119,6 +127,21 @@
                 if(!this.searchPhrase) return;
                 router.push({ path: '/search', query: { s: this.searchPhrase }})
             }
+        },
+        mounted() {
+            API.get('pages')
+                .then(response => {
+                    this.partnershipItems.push({
+                       title: response['data'][3]['title']['rendered'],
+                       link: `/page/${response['data'][3]['slug']}`
+                    });
+                    for(let i=0; i<3; i++) {
+                        this.authorItems.push({
+                            title: response['data'][i]['title']['rendered'],
+                            link: `/page/${response['data'][i]['slug']}`
+                        });
+                    }
+                })
         }
     }
 </script>

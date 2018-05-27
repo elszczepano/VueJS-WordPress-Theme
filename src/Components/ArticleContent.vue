@@ -1,8 +1,6 @@
 <template>
     <v-layout my-5 mx-3 class="mx-auto default--container">
-        <div class="article--content" v-html="content">
-
-        </div>
+        <div class="article--content" v-html="content"></div>
     </v-layout>
 </template>
 

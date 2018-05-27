@@ -32,7 +32,7 @@ function posttype_projects() {
         'hierarchical'       => false,
         'menu_position'      => null,
         'show_in_rest'       => true,
-        'rest_base'          => 'projects-api',
+        'rest_base'          => 'projects',
         'rest_controller_class' => 'WP_REST_Posts_Controller',
         'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt')
     );

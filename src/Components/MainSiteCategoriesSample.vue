@@ -3,7 +3,7 @@
         <h2 class="headline main-page--header">{{this.category.name}} - ostatnio dodane</h2>
         <v-layout row wrap>
             <v-flex v-for="i in 4" :key="`${i}`" xs12 md3 sm6>
-                <article-sample :fetchValue="articles[i-1]" />
+                <article-sample :details="articles[i-1]" />
             </v-flex>
         </v-layout>
     </v-container>

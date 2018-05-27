@@ -15,11 +15,11 @@
 <script>
     import MainHeader from './MainHeader';
     import MainFooter from './MainFooter';
-
     export default {
         components: {
             MainFooter,
-            MainHeader},
+            MainHeader
+        },
         name: 'newsletter-thanks'
     };
 </script>

@@ -24,7 +24,7 @@
     export default {
         name: 'article-list-sample',
         props: [
-            'fetchValue'
+            'details'
         ],
         data: () => ({
             id: 0,
@@ -40,19 +40,19 @@
         watch: {
             '$props': {
                 handler: function (val) {
-                    this.title = val['fetchValue']['title']['rendered'];
-                    this.thumbnail = val['fetchValue']['better_featured_image']['source_url'];
-                    this.description = val['fetchValue']['excerpt']['rendered'];
-                    this.id = val['fetchValue']['id'];
+                    this.title = val['details']['title']['rendered'];
+                    this.thumbnail = val['details']['better_featured_image']['source_url'];
+                    this.description = val['details']['excerpt']['rendered'];
+                    this.id = val['details']['id'];
                 },
                 deep: true
             }
         },
         created() {
-            this.title = this.fetchValue['title']['rendered'];
-            this.thumbnail = this.fetchValue['better_featured_image']['source_url'];
-            this.description = this.fetchValue['excerpt']['rendered'];
-            this.id = this.fetchValue['id'];
+            this.title = this.details['title']['rendered'];
+            this.thumbnail = this.details['better_featured_image']['source_url'];
+            this.description = this.details['excerpt']['rendered'];
+            this.id = this.details['id'];
         }
     };
 </script>

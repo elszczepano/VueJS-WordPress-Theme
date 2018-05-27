@@ -7,8 +7,11 @@
                     Kategoria:
                     <span class="text__red">{{category}}</span>
                 </h2>
-                <article-list-sample :fetchValue="articles[index]" v-for="(article, index) in articles" :key="`${index}`"/>
-                <h3 class="text-xs-center" v-show="!articles.length">Brak wpisów w tej kategorii...</h3>
+                <article-list-sample :details="article" v-for="(article, index) in articles" :key="`${index}`"/>
+                <infinite-loading force-use-infinite-wrapper="true" @infinite="infiniteHandler">
+                    <span class="headline" v-show="articles.length>10" v-if="articles.length" slot="no-more">Koniec artykułów</span>
+                    <span class="headline" v-else slot="no-more">Brak wpisów w tej kategorii</span>
+                </infinite-loading>
             </v-flex>
         </v-layout>
         <main-footer/>
@@ -21,39 +24,54 @@
     import MainHeader from './MainHeader';
     import API from '../api';
     import ArticleListSample from './ArticleListSample';
+    import InfiniteLoading from 'vue-infinite-loading';
     import router from '../router';
     export default {
         components: {
             ArticleListSample,
             MainHeader,
-            MainFooter
+            MainFooter,
+            InfiniteLoading
         },
         name: 'category-articles',
         data: () => ({
             articles: [],
-            category: ''
+            category: '',
+            postsCount: 0
         }),
         methods: {
-            loadPosts() {
-                API.get(`posts?categories=${this.$route.params.id}`)
-                    .then(response => this.articles = response['data'])
+            loadPosts(param) {
+                API.get(`posts?categories=${this.$route.params.id}&per_page=${param}`)
+                    .then(response => {
+                        console.log(response.headers);
+                        this.postsCount = parseInt(response.headers['x-wp-total'], 10);
+                        this.articles = response['data']
+                    });
+            },
+            infiniteHandler($state) {
+                setTimeout(() => {
+                    const articles = this.articles.length;
+                    this.loadPosts(articles + 10);
+                    if(this.articles.length === this.postsCount) $state.complete();
+                    $state.loaded();
+                }, 500);
             },
             getCategory() {
                 API.get(`categories/${this.$route.params.id}`)
                     .then(response => this.category = response['data']['name'])
-                    .catch(error => {
+                    .catch(() => {
                         router.push({path: '/'});
                     });
             }
         },
         watch: {
             '$route' () {
-                this.loadPosts();
+                this.loadPosts(10);
                 this.getCategory();
             }
         },
         mounted() {
-            this.loadPosts();
+            this.loadPosts(10);
             this.getCategory();
         }
     };

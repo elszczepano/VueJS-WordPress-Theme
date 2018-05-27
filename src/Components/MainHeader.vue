@@ -49,6 +49,14 @@
                     </v-list-tile-title>
                 </v-list-tile>
             </v-list>
+            <v-layout row wrap ml-4 mr-3>
+                <v-flex xs10>
+                    <v-text-field placeholder="Szukaj..." @keyup.enter="search" v-model="searchPhrase" name="input-1-3" class=" input-group--focused" color="red lighten-1"></v-text-field>
+                </v-flex>
+                <v-flex d-flex align-center justify-center just xs2>
+                    <v-btn @click="search" flat icon><i class="material-icons">search</i></v-btn>
+                </v-flex>
+            </v-layout>
             <v-list>
                 <v-list-group prepend-icon="school" lazy>
                     <v-list-tile slot="activator">

@@ -3,16 +3,6 @@
       <main-header/>
        <v-layout class="mx-auto default--container">
            <v-layout row wrap>
-               <v-flex xs12 class="hidden-md-and-up">
-                   <v-layout ml-4 mr-1 justify-center row wrap>
-                       <v-flex xs10 sm11>
-                           <v-text-field placeholder="Wyszukaj na blogu" @keyup.enter="search" v-model="searchPhrase" class="input-group--focused" color="red lighten-1"></v-text-field>
-                       </v-flex>
-                       <v-flex d-flex align-center justify-center just xs2 sm1>
-                           <v-btn @click="search" flat icon><i class="material-icons">search</i></v-btn>
-                       </v-flex>
-                   </v-layout>
-               </v-flex>
                <v-flex xs12>
                    <newest-articles/>
                </v-flex>
@@ -37,7 +27,6 @@
     import NewestArticles from './NewestArticles';
     import MainSiteCategoriesSample from './MainSiteCategoriesSample';
     import MostPopular from './MostPopular';
-    import router from '../router';
     export default {
         name: "Main",
         components: {
@@ -47,14 +36,7 @@
             MainHeader,
             MainFooter
         },
-        methods: {
-            search() {
-                if(!this.searchPhrase) return;
-                router.push({ path: '/search', query: { s: this.searchPhrase }})
-            }
-        },
         data: () => ({
-            searchPhrase: "",
             promotedCategories: [
                 {
                     name: "JavaScript",

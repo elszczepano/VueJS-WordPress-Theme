@@ -43,7 +43,6 @@
             loadPosts(param) {
                 API.get(`posts?categories=${this.$route.params.id}&per_page=${param}`)
                     .then(response => {
-                        console.log(response.headers);
                         this.postsCount = parseInt(response.headers['x-wp-total'], 10);
                         this.articles = response['data']
                     });

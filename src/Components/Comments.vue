@@ -1,24 +1,10 @@
 <template>
-    <noscript>
-        Please enable JavaScript to view the
-        <a href="https://disqus.com/?ref_noscript" rel="nofollow">
-            comments powered by Disqus.
-        </a>
-    </noscript>
+    <v-flex mb-5 mx-3>
+       <vue-disqus shortname="dszczepaniak" :identifier="this.$route.query.page" :url="this.$route.query.page"></vue-disqus>
+    </v-flex>
 </template>
 
 <script>
-    var disqus_config = function () {
-        this.page.url = PAGE_URL;
-        this.page.identifier = PAGE_IDENTIFIER;
-    };
-    (function() {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://devszczepaniak.disqus.com/embed.js';
-
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
     export default {
         name: 'comments'
     };

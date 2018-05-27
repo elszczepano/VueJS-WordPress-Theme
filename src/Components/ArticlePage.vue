@@ -10,7 +10,7 @@
                     <article-content :details="article"/>
                 </v-flex>
                 <v-flex xs12>
-                    <comments :details="article"/>
+                    <comments />
                 </v-flex>
             </v-layout>
         </v-layout>

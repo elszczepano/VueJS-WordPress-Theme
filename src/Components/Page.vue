@@ -4,21 +4,10 @@
         <v-layout class="mx-auto default--container">
             <v-layout row wrap>
                 <v-flex xs12>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, minus reprehenderit.
-                    Aut error magni repellat! Dignissimos est et incidunt iure modi natus praesentium quae quaerat quam quo?
-                    Autem, totam voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, minus reprehenderit.
-                    Aut error magni repellat! Dignissimos est et incidunt iure modi natus praesentium quae quaerat quam quo?
-                    Autem, totam voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, minus reprehenderit.
-                    Aut error magni repellat! Dignissimos est et incidunt iure modi natus praesentium quae quaerat quam quo?
-                    Autem, totam voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, minus reprehenderit.
-                    Aut error magni repellat! Dignissimos est et incidunt iure modi natus praesentium quae quaerat quam quo?
-                    Autem, totam voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, minus reprehenderit.
-                    Aut error magni repellat! Dignissimos est et incidunt iure modi natus praesentium quae quaerat quam quo?
-                    Autem, totam voluptatum.
+                    <h2 class="display-2">{{title}}</h2>
+                </v-flex>
+                <v-flex xs12>
+                    <div class="article--content" v-html="content"></div>
                 </v-flex>
             </v-layout>
         </v-layout>
@@ -29,16 +18,49 @@
 <script>
     import MainHeader from './MainHeader';
     import MainFooter from './MainFooter';
-
+    import router from '../router';
+    import API from '../api';
     export default {
         components: {
             MainFooter,
             MainHeader
         },
-        name: 'page'
+        data:() => ({
+            content: '',
+            title: ''
+        }),
+        name: 'page',
+        methods: {
+            loadContent() {
+                API.get(`pages?slug=${this.$route.params.slug}`)
+                    .then(response => {
+                        this.content = response['data'][0]['content']['rendered'];
+                        this.title = response['data'][0]['title']['rendered'];
+                    })
+                    .catch(() => {
+                        router.push({path: '/'});
+                    });
+
+            }
+        },
+        watch: {
+            '$route' () {
+                this.loadContent();
+            }
+        },
+        mounted() {
+            this.loadContent();
+        }
     };
 </script>
 
 <style scoped>
-
+    .article--content {
+        font-size: 1.25rem;
+    }
+    @media only screen and (max-width: 600px) {
+        .article--content {
+            text-align: justify;
+        }
+    }
 </style>

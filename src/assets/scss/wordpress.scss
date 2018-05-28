@@ -38,6 +38,15 @@ a img.aligncenter {
   margin-right: auto;
 }
 
+@media only screen and (max-width: 600px) {
+  .article--content img {
+    width: 100%;
+    height: auto;
+    float: none;
+    margin: 0 auto;
+  }
+}
+
 .wp-caption {
   background: #fff;
   border: 1px solid #f0f0f0;

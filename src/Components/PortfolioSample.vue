@@ -11,11 +11,11 @@
                 <v-layout row wrap>
                     <v-flex v-if="source" xs12 d-flex justify-center>
                         <v-icon>fab fa-github</v-icon>
-                        <v-btn flat :href="source">Źródło</v-btn>
+                        <v-btn flat :href="source" target="blank">Źródło</v-btn>
                     </v-flex>
                     <v-flex v-if="preview" xs12 d-flex justify-center>
                         <v-icon>fas fa-link</v-icon>
-                        <v-btn flat :href="preview">Demo</v-btn>
+                        <v-btn flat :href="preview" target="blank">Demo</v-btn>
                     </v-flex>
                 </v-layout>
         </v-card-actions>

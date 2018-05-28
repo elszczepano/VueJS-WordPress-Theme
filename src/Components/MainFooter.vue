@@ -25,7 +25,7 @@
                 </v-card-actions>
             </v-flex>
             <v-flex d-flex sm12 md2>
-                <v-btn v-for="(item, index) in socialMedia" :key="index" :href="item.link" icon class="white--text"><v-icon>{{item.icon}}</v-icon></v-btn>
+                <v-btn v-for="(item, index) in socialMedia" :key="index" target="blank" :href="item.link" icon class="white--text"><v-icon>{{item.icon}}</v-icon></v-btn>
             </v-flex>
             <v-flex sm12 md10 class="align-center">
                 <div class="subheading text-xs-center text-md-right pa-2">

@@ -1,6 +1,6 @@
 <template>
     <v-card>
-        <v-card-media :src="thumbnail" height="200px"></v-card-media>
+        <v-card-media :src="thumbnail" height="450px"></v-card-media>
         <v-card-title primary-title>
             <div>
                 <h3 class="headline mb-2">{{title}}</h3>

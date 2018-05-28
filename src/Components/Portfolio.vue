@@ -8,6 +8,7 @@
                     <v-flex v-for="(project, index) in projects" :key="`${index}`" xs12 sm6>
                         <portfolio-sample :details="project"/>
                     </v-flex>
+                    <h3 v-if="!projects.length" class="display-1 text-xs-center main-page--header">Brak projektów</h3>
                 </v-layout>
             </v-container>
         </v-layout>

@@ -140,10 +140,10 @@
             API.get('pages')
                 .then(response => {
                     this.partnershipItems.push({
-                       title: response['data'][3]['title']['rendered'],
-                       link: `/page/${response['data'][3]['slug']}`
+                       title: response['data'][2]['title']['rendered'],
+                       link: `/page/${response['data'][2]['slug']}`
                     });
-                    for(let i=0; i<3; i++) {
+                    for(let i=0; i<2; i++) {
                         this.authorItems.push({
                             title: response['data'][i]['title']['rendered'],
                             link: `/page/${response['data'][i]['slug']}`

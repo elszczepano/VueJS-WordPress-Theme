@@ -2,7 +2,7 @@
     <v-app>
         <main-header/>
         <v-layout class="mx-auto default--container">
-            <v-layout row wrap>
+            <v-layout ma-5 row wrap>
                 <v-flex xs12>
                     <h2 class="display-2">{{title}}</h2>
                 </v-flex>

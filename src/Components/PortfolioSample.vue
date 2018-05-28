@@ -3,7 +3,7 @@
         <v-card-media :src="thumbnail" height="450px"></v-card-media>
         <v-card-title primary-title>
             <div>
-                <h3 class="headline mb-2">{{title}}</h3>
+                <h3 class="headline mb-2" v-html="title"></h3>
                 <div v-html="description"></div>
             </div>
         </v-card-title>

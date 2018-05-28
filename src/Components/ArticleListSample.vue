@@ -7,7 +7,7 @@
                         <v-card-media :src="thumbnail" height="200px"></v-card-media>
                     </v-flex>
                     <v-flex xs12 sm8 pa-3>
-                        <div class="headline">{{title}}</div>
+                        <div class="headline" v-html="title"></div>
                         <div>{{description | slice}}...</div>
                         <v-card-actions>
                             <v-spacer></v-spacer>

@@ -5,7 +5,7 @@
                 <v-jumbotron :src="thumbnail"></v-jumbotron>
                 <v-layout row wrap>
                     <v-flex text-md-center pa-3 xs12>
-                        <h3 class="display-1">{{title}}</h3>
+                        <h3 class="display-1" v-html="title"></h3>
                     </v-flex>
                     <v-layout text-xs-center row wrap>
                         <v-flex xs12 sm4 class="align-center">

@@ -5,7 +5,7 @@
             <v-container grid-list-md mb-5>
                 <h2 class="display-2 text-xs-center main-page--header">Portfolio</h2>
                 <v-layout row wrap>
-                    <v-flex v-for="(project, index) in projects" :key="`${index}`" xs12 sm6>
+                    <v-flex mb-4 v-for="(project, index) in projects" :key="`${index}`" xs12 sm6>
                         <portfolio-sample :details="project"/>
                     </v-flex>
                     <h3 v-if="!projects.length" class="display-1 text-xs-center main-page--header">Brak projektów</h3>

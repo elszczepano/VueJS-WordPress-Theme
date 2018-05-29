@@ -12,9 +12,12 @@
                <v-flex xs12>
                    <main-site-categories-sample :category="promotedCategories[0]"/>
                </v-flex>
+               <!--
+               // I'll add this section when blog will grow
                <v-flex xs12>
                    <main-site-categories-sample :category="promotedCategories[1]"/>
                </v-flex>
+               -->
            </v-layout>
        </v-layout>
       <main-footer />
@@ -28,7 +31,7 @@
     import MainSiteCategoriesSample from './MainSiteCategoriesSample';
     import MostPopular from './MostPopular';
     export default {
-        name: "Main",
+        name: 'Main',
         components: {
             MostPopular,
             MainSiteCategoriesSample,
@@ -39,13 +42,9 @@
         data: () => ({
             promotedCategories: [
                 {
-                    name: "JavaScript",
-                    id: 2
-                },
-                {
-                    name: "Frontend",
+                    name: 'Frontend',
                     id: 3
-                },
+                }
             ]
         }),
     }

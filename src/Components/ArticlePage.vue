@@ -4,10 +4,10 @@
         <v-layout class="mx-auto default--container">
             <v-layout row wrap>
                 <v-flex xs12>
-                    <article-header :details="article"/>
+                    <article-header :details="article[0]"/>
                 </v-flex>
                 <v-flex xs12>
-                    <article-content :details="article"/>
+                    <article-content :details="article[0]"/>
                 </v-flex>
                 <v-flex xs12>
                     <comments />
@@ -40,7 +40,7 @@
         name: 'article-page',
         methods: {
             loadContent() {
-                API.get(`posts/${this.$route.params.id}`)
+                API.get(`posts?slug=${this.$route.params.slug}`)
                     .then(response => this.article = response['data'])
                     .catch(() => {
                         router.push({path: '/'});

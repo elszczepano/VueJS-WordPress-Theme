@@ -37,14 +37,25 @@
         data: () => ({
             articles: [],
             category: '',
-            postsCount: 0
+            postsCount: 0,
+            categoryId: 0,
         }),
         methods: {
             loadPosts(param) {
-                API.get(`posts?categories=${this.$route.params.id}&per_page=${param}`)
+                API.get(`categories?slug=${this.$route.params.slug}`)
                     .then(response => {
-                        this.postsCount = parseInt(response.headers['x-wp-total'], 10);
-                        this.articles = response['data']
+                        this.categoryId = response['data'][0]['id'];
+                        this.category = response['data'][0]['name'];
+                    })
+                    .then(() => {
+                        API.get(`posts?categories=${this.categoryId}&per_page=${param}`)
+                            .then(response => {
+                                this.postsCount = parseInt(response.headers['x-wp-total'], 10);
+                                this.articles = response['data']
+                            })
+                    })
+                    .catch(() => {
+                        router.push({path: '/'});
                     });
             },
             infiniteHandler($state) {
@@ -54,24 +65,15 @@
                     if(this.articles.length === this.postsCount) $state.complete();
                     $state.loaded();
                 }, 500);
-            },
-            getCategory() {
-                API.get(`categories/${this.$route.params.id}`)
-                    .then(response => this.category = response['data']['name'])
-                    .catch(() => {
-                        router.push({path: '/'});
-                    });
             }
         },
         watch: {
             '$route' () {
                 this.loadPosts(10);
-                this.getCategory();
             }
         },
         mounted() {
             this.loadPosts(10);
-            this.getCategory();
         }
     };
 </script>

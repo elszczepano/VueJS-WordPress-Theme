@@ -4,7 +4,7 @@
             <v-flex xs12 md7>
                 <v-list two-line class="blue-grey darken-4" dark>
                     <v-subheader>Kategorie:</v-subheader>
-                    <router-link v-for="(category, index) in categories" :key="`${index}`" class="white--text" :to="`/category/${category.id}`">
+                    <router-link v-for="(category, index) in categories" :key="`${index}`" class="white--text" :to="`/category/${category.slug}`">
                         <v-list-tile @click="">
                             <v-list-tile-action>
                                 <i class="material-icons red--marker">chevron_right</i>

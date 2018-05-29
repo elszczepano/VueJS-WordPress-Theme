@@ -7,7 +7,7 @@
             </v-flex>
             <v-flex xs12>
                 <v-list class="grey lighten-5" three-line>
-                    <router-link v-for="(category, index) in categories" :key="`${index}`" :to="`/category/${category.id}`">
+                    <router-link v-for="(category, index) in categories" :key="`${index}`" :to="`/category/${category.slug}`">
                         <v-list-tile  @click="">
                             <v-list-tile-action>
                                 <i class="material-icons red--marker">chevron_right</i>

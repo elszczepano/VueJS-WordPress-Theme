@@ -21,8 +21,8 @@ export default new Router({
             component: Main
         },
         {
-            path: '/post/:id',
-            alias: '/posts/:id',
+            path: '/post/:slug',
+            alias: '/posts/:slug',
             name: 'articlePage',
             component: ArticlePage
         },
@@ -38,7 +38,7 @@ export default new Router({
             component: ArticlesList
         },
         {
-            path: '/category/:id',
+            path: '/category/:slug',
             name: 'categoryArticle',
             component: CategoryArticles
         },

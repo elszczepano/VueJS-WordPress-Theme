@@ -9,7 +9,7 @@
         </v-card-title>
         <v-card-actions>
             <v-spacer></v-spacer>
-            <router-link :to="`/post/${id}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
+            <router-link :to="`/post/${slug}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
         </v-card-actions>
     </v-card>
 </template>
@@ -21,7 +21,7 @@
             'details'
         ],
         data: () => ({
-            id: 0,
+            slug: '',
             thumbnail: '',
             title: '',
             description: ''
@@ -37,7 +37,7 @@
                     this.title = val['details']['title']['rendered'];
                     this.thumbnail = val['details']['better_featured_image']['source_url'];
                     this.description = val['details']['excerpt']['rendered'];
-                    this.id = val['details']['id'];
+                    this.slug = val['details']['slug'];
                 },
                 deep: true
             }

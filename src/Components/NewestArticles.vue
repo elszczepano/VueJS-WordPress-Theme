@@ -14,7 +14,7 @@
                     </v-card-title>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <router-link :to="`/post/${id}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
+                        <router-link :to="`/post/${slug}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
                     </v-card-actions>
                 </v-card>
             </v-flex>
@@ -37,7 +37,7 @@
         name: 'newest-articles',
         data: () => ({
             articles: [],
-            id: 0,
+            slug: 0,
             thumbnail: '',
             title: '',
             description: ''
@@ -54,7 +54,7 @@
                     this.title = this.articles[0]['title']['rendered'];
                     this.thumbnail = this.articles[0]['better_featured_image']['source_url'];
                     this.description = this.articles[0]['excerpt']['rendered'];
-                    this.id = this.articles[0]['id'];
+                    this.slug = this.articles[0]['slug'];
                 });
         }
     };

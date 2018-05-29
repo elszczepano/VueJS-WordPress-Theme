@@ -47,6 +47,11 @@ a img.aligncenter {
   }
 }
 
+pre {
+  display: flex;
+  justify-content: center;
+}
+
 .wp-caption {
   background: #fff;
   border: 1px solid #f0f0f0;

@@ -47,6 +47,18 @@ a img.aligncenter {
   }
 }
 
+@media (max-width: 988px) {
+  .wp-caption, pre code {
+    /* Force the box to be 100% */
+    width: 100% !important;
+  }
+  #content .wp-caption a img, pre code {
+    /* Scale down if too big */
+    max-width: 99.03225806%; /* 614/620 */
+    height: auto;
+  }
+}
+
 pre {
   display: flex;
   justify-content: center;

@@ -45,16 +45,16 @@
             categoriesNames: [],
         }),
         methods: {
-          getAuthor() {
-              API.get(`users/${this.authorId}`)
-                  .then(response => this.author = response['data']['name']);
-          },
-          getCategories() {
-              for(let index of this.categoriesIds) {
-                  API.get(`categories/${index}`)
-                      .then(response => this.categoriesNames.push(response['data']['name']));
-              }
-          }
+            getAuthor() {
+                API.get(`users/${this.authorId}`)
+                    .then(response => this.author = response['data']['name']);
+            },
+            getCategories() {
+                for(let index of this.categoriesIds) {
+                    API.get(`categories/${index}`)
+                        .then(response => this.categoriesNames.push(response['data']['name']));
+                }
+            }
         },
         filters: {
             slice: function(value) {

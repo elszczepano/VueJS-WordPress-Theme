@@ -2,7 +2,7 @@
     <v-app>
         <main-header/>
         <v-layout class="mx-auto default--container">
-            <v-layout row wrap>
+            <v-layout mt-3 row wrap>
                 <v-flex xs12>
                     <article-header :details="article[0]"/>
                 </v-flex>

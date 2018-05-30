@@ -4,7 +4,7 @@
         <v-layout row wrap>
             <v-flex d-flex xs12 md8>
                 <v-card>
-                    <v-card-media :src="thumbnail" height="575px">
+                    <v-card-media class="first-article--picture" :src="thumbnail" height="575px">
                     </v-card-media>
                     <v-card-title primary-title>
                         <div>
@@ -64,6 +64,9 @@
     @media only screen and (max-width: 600px) {
         .main-page--header {
             font-size: 3rem !important;
+        }
+        .first-article--picture {
+            height: 200px !important;
         }
     }
 </style>

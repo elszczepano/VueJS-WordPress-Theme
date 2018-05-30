@@ -1,15 +1,11 @@
 import path from 'path';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import VueLoaderPlugin from 'vue-loader/lib/plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 const devMode = process.env.NODE_ENV !== 'production';
 
 const prodPlugins = [
-    new MiniCssExtractPlugin({
-        filename: "style.css"
-    }),
     new UglifyJsPlugin(),
     new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.optimize\.css$/g,
@@ -38,7 +34,7 @@ const config = {
             {
                 test: /\.s?[ac]ss$/,
                 use: [
-                    devMode ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+                    'vue-style-loader',
                     'css-loader',
                     'sass-loader',
                     {

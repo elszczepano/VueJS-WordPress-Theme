@@ -8,7 +8,7 @@
                     </v-flex>
                     <v-flex xs12 sm8 pa-3>
                         <div class="headline" v-html="title"></div>
-                        <div>{{description | slice}}...</div>
+                        <div v-html="slice(description)"></div>
                         <v-card-actions>
                             <v-spacer></v-spacer>
                             <router-link :to="`/post/${slug}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>

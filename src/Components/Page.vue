@@ -1,8 +1,8 @@
 <template>
     <v-app>
         <main-header/>
-        <v-layout class="mx-auto default--container" my-5 mx-2>
-            <v-layout mt-3 row wrap>
+        <v-layout class="mx-auto default--container">
+            <v-layout mt-3 row wrap mx-2 my-5>
                 <v-flex xs12>
                     <h2 class="display-2">{{title}}</h2>
                 </v-flex>

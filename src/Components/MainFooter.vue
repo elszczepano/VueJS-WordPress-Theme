@@ -19,8 +19,9 @@
             <v-flex pa-2 xs12 md5>
                 <span class="subheading">Zapisz się na newsletter:</span>
                 <v-text-field v-validate="'required|email'" name="newsletter" @keyup.enter="subscribe" color="white" v-model="email" :rules="emailRules" label="E-mail" dark required></v-text-field>
-                <v-card-actions>
-                    <v-spacer></v-spacer>
+                <v-card-actions dark>
+                    <v-checkbox :rules="[v => !!v || '']" dark v-model="checkbox"></v-checkbox>
+                    <label>Chcę otrzymywać informacje i treści marketingowe z serwisu devszczepaniak.pl (wymagane)</label>
                     <v-btn @click="subscribe" depressed>Zapisz się!</v-btn>
                 </v-card-actions>
             </v-flex>
@@ -50,6 +51,8 @@
             ],
             categories: [],
             email: '',
+            valid: false,
+            checkbox: false,
             emailRules: [
                 v => !!v || 'E-mail is required',
                 v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
@@ -57,7 +60,7 @@
         }),
         methods: {
           subscribe() {
-              if(!this.email || this.errors.has('newsletter')) return;
+              if(!this.checkbox || !this.email || this.errors.has('newsletter')) return;
               API.post('http://localhost/VueWP/wp-json/newsletter/v1/subscribe',
                   {
                       email: this.email

@@ -51,10 +51,12 @@ a img.aligncenter {
   .wp-caption, pre code {
     /* Force the box to be 100% */
     width: 100% !important;
+    margin: 0 auto !important;
+    float: none !important;
   }
   #content .wp-caption a img, pre code {
     /* Scale down if too big */
-    max-width: 99.03225806%; /* 614/620 */
+    max-width: 96.03225806%; /* 614/620 */
     height: auto;
   }
 }

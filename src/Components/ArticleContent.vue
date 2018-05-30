@@ -31,6 +31,7 @@
     @media only screen and (max-width: 600px) {
         .article--content {
             text-align: justify;
+            font-size: 1.1rem;
         }
     }
 </style>

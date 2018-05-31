@@ -13,7 +13,7 @@
                     <h3 v-show="!articles.length" class="text-xs-center">Brak wyników wyszukiwania...</h3>
                 </infinite-loading>
             </v-flex>
-        </v-layout>a
+        </v-layout>
         <main-footer />
     </v-app>
 </template>

@@ -49,8 +49,7 @@ a img.aligncenter {
 
 @media (max-width: 988px) {
   .wp-caption, pre code {
-    /* Force the box to be 100% */
-    width: 80% !important;
+    width: 85% !important;
     margin: 0 auto !important;
     float: none !important;
   }
@@ -59,6 +58,37 @@ a img.aligncenter {
     max-width: 96.03225806%; /* 614/620 */
     height: auto;
   }
+}
+@media only screen and (max-width: 400px) {
+  .wp-caption, pre code {
+    width: 90% !important;
+    margin: 0 auto !important;
+    float: none !important;
+  }
+  #content .wp-caption a img, pre code {
+    max-width: 96.03225806%;
+    height: auto;
+  }
+}
+
+a {
+
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+
 }
 
 pre {

@@ -61,7 +61,7 @@
         methods: {
           subscribe() {
               if(!this.checkbox || !this.email || this.errors.has('newsletter')) return;
-              API.post('http://localhost/VueWP/wp-json/newsletter/v1/subscribe',
+              API.post('https://devszczepaniak.pl/wp-json/newsletter/v1/subscribe',
                   {
                       email: this.email
                   })

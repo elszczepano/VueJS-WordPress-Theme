@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: `http://localhost/VueWP/wp-json/wp/v2/`
+    baseURL: `https://devszczepaniak.pl/wp-json/wp/v2/`
 });

@@ -4,7 +4,7 @@
         <v-card-title primary-title>
             <div>
                 <h3 class="headline mb-0" v-html="title"></h3>
-                <div>{{description | slice}}</div>
+                <div>{{description | slice}}...</div>
             </div>
         </v-card-title>
         <v-card-actions>
@@ -28,7 +28,7 @@
         }),
         filters: {
             slice: function(value) {
-                return value.slice(3, 100);
+                return value.slice(3, 90);
             }
         },
         watch: {

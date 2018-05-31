@@ -9,9 +9,9 @@
                     </v-flex>
                     <v-layout text-xs-center row wrap>
                         <v-flex xs12 sm4 class="align-center">
-                            <strong v-for="(category, index) in categoriesNames" :key="`${index}`">
+                            <strong v-for="(category, index) in categories" :key="`${index}`">
                                 <v-btn class="red--marker" icon><v-icon small>fas fa-tags</v-icon></v-btn>
-                                <router-link :to="`/category/${categoriesIds[index]}`"><span>{{category}}</span></router-link>
+                                <router-link :to="`/category/${category.slug}`"><span>{{category.name}}</span></router-link>
                             </strong>
                         </v-flex>
                         <v-flex xs12 sm4 class="align-center">
@@ -42,7 +42,7 @@
             author: '',
             date: '',
             categoriesIds: [],
-            categoriesNames: [],
+            categories: [],
         }),
         methods: {
             getAuthor() {
@@ -52,7 +52,7 @@
             getCategories() {
                 for(let index of this.categoriesIds) {
                     API.get(`categories/${index}`)
-                        .then(response => this.categoriesNames.push(response['data']['name']));
+                        .then(response => this.categories.push(response['data']));
                 }
             }
         },

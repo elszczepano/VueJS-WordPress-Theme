@@ -5,7 +5,7 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <?php wp_head(); ?>
-    <title><?php wp_title(); ?></title>
+    <title><?php if (is_front_page()) bloginfo( 'name' );  else  wp_title();?></title>
 </head>
 <body>
 <div id="app"></div>

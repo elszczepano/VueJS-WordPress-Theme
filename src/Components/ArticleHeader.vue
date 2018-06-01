@@ -8,17 +8,20 @@
                         <h3 class="display-1" v-html="title"></h3>
                     </v-flex>
                     <v-layout text-xs-center row wrap>
-                        <v-flex xs12 sm4 class="align-center">
+                        <v-flex xs12 sm6 md3 class="align-center">
                             <strong v-for="(category, index) in categories" :key="`${index}`">
                                 <v-btn class="red--marker" icon><v-icon small>fas fa-tags</v-icon></v-btn>
                                 <router-link :to="`/category/${category.slug}`"><span>{{category.name}}</span></router-link>
                             </strong>
                         </v-flex>
-                        <v-flex xs12 sm4 class="align-center">
+                        <v-flex xs12 sm6 md3 class="align-center">
                             <strong><v-btn class="red--marker" icon><v-icon small>fas fa-user</v-icon></v-btn> {{author}}</strong>
                         </v-flex>
-                        <v-flex xs12 sm4 class="align-center">
+                        <v-flex xs12 sm6 md3 class="align-center">
                             <strong><v-btn class="red--marker" icon><v-icon small>fas fa-calendar-alt</v-icon></v-btn> {{date | slice}}</strong>
+                        </v-flex>
+                        <v-flex xs12 sm6 md3>
+                            <strong><v-btn class="red--marker" icon><v-icon small>far fa-clock</v-icon></v-btn>{{content | time}} czytania</strong>
                         </v-flex>
                     </v-layout>
                 </v-layout>
@@ -41,6 +44,7 @@
             authorId: '',
             author: '',
             date: '',
+            content: '',
             categoriesIds: [],
             categories: [],
         }),
@@ -59,6 +63,11 @@
         filters: {
             slice: function(value) {
                 return value.slice(0, 10);
+            },
+            time: function(value) {
+                if(value.length < 3600) return '1 minuta'
+                else if(value.length < 9000) return `${Math.ceil(value.length/1800)} minuty`
+                else return `${Math.ceil(value.length/1800)} minut`
             }
         },
         watch: {
@@ -66,6 +75,7 @@
                 handler: function (val) {
                     this.categoriesNames = [];
                     this.title = val['details']['title']['rendered'];
+                    this.content = val['details']['content']['rendered'];
                     this.thumbnail = val['details']['better_featured_image']['source_url'];
                     this.date = val['details']['date'];
                     this.authorId = val['details']['author'];

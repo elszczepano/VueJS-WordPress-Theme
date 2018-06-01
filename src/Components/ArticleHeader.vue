@@ -2,7 +2,9 @@
     <v-container grid-list-md >
         <v-layout class="mx-auto default--container article--header">
             <v-flex xs12>
-                <v-jumbotron :src="thumbnail"></v-jumbotron>
+                <v-card>
+                    <v-card-media class="thumbnail" :src="thumbnail" height="500px"></v-card-media>
+                </v-card>
                 <v-layout row wrap>
                     <v-flex text-md-center pa-3 xs12>
                         <h3 class="display-1" v-html="title"></h3>
@@ -90,6 +92,11 @@
 </script>
 
 <style scoped>
+    @media only screen and (max-width: 600px) {
+        .thumbnail {
+            height: 200px !important;
+        }
+    }
     .article--header {
         border-bottom: $default-border;
     }

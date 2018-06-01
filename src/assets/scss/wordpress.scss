@@ -46,6 +46,9 @@ a img.aligncenter {
     margin: 0 auto;
   }
 }
+pre code {
+  width: 100%;
+}
 
 @media (max-width: 988px) {
   .wp-caption, pre code {

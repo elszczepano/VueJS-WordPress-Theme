@@ -1,10 +1,11 @@
 <template>
     <v-flex mb-5 mx-3>
-       <vue-disqus shortname="dszczepaniak" :identifier="this.$route.query.page" :url="this.$route.query.page"></vue-disqus>
+       <vue-disqus shortname="devszczepaniak" :identifier="this.$route.params.slug" :url="`https://devszczepaniak.pl${this.$route.fullPath}`"></vue-disqus>
     </v-flex>
 </template>
 
 <script>
+
     export default {
         name: 'comments'
     };

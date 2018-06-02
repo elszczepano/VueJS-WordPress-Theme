@@ -49,7 +49,7 @@
         },
         mounted() {
             API.get('posts?per_page=3')
-                .then(response => this.articles = response['data'])
+                .then(({data}) => this.articles = data)
                 .then(() => {
                     this.title = this.articles[0]['title']['rendered'];
                     this.thumbnail = this.articles[0]['better_featured_image']['source_url'];

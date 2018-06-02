@@ -70,7 +70,7 @@
         },
         mounted() {
             API.get('categories')
-                .then(response => this.categories = response['data'])
+                .then(({data}) => this.categories = data)
         }
     };
 </script>

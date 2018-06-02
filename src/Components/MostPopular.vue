@@ -20,8 +20,8 @@
         }),
         mounted() {
             API.get('posts?per_page=100')
-                .then(response => {
-                    for(let value of response['data']) {
+                .then(({data}) => {
+                    for(let value of data) {
                         if(value['acf']['promoted'].length) this.articles.push(value)
                     }
                 })

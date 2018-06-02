@@ -41,7 +41,7 @@
         methods: {
             loadContent() {
                 API.get(`posts?slug=${this.$route.params.slug}`)
-                    .then(response => this.article = response['data'])
+                    .then(({data}) => this.article = data)
                     .catch(() => {
                         router.push({path: '/'});
                     });

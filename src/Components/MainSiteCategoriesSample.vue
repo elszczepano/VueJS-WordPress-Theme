@@ -23,7 +23,7 @@
         }),
         mounted() {
             API.get(`posts?categories=${this.category.id}&per_page=4`)
-                .then(response => this.articles = response['data'])
+                .then(({data}) => this.articles = data)
         }
     };
 </script>

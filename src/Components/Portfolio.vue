@@ -33,7 +33,7 @@
         }),
         mounted() {
             API.get('projects?per_page=100')
-                .then(response => this.projects = response['data'])
+                .then(({data}) => this.projects = data)
         }
     };
 

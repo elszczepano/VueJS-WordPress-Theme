@@ -33,14 +33,13 @@
         methods: {
             loadContent() {
                 API.get(`pages?slug=${this.$route.params.slug}`)
-                    .then(response => {
-                        this.content = response['data'][0]['content']['rendered'];
-                        this.title = response['data'][0]['title']['rendered'];
+                    .then(({data}) => {
+                        this.content = data[0]['content']['rendered'];
+                        this.title = data[0]['title']['rendered'];
                     })
                     .catch(() => {
                         router.push({path: '/'});
                     });
-
             }
         },
         watch: {

@@ -43,9 +43,9 @@
         methods: {
             loadPosts(param) {
                 API.get(`categories?slug=${this.$route.params.slug}`)
-                    .then(response => {
-                        this.categoryId = response['data'][0]['id'];
-                        this.category = response['data'][0]['name'];
+                    .then(({data}) => {
+                        this.categoryId = data[0]['id'];
+                        this.category = data[0]['name'];
                     })
                     .then(() => {
                         API.get(`posts?categories=${this.categoryId}&per_page=${param}`)

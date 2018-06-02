@@ -26,12 +26,12 @@
 
 <style scoped>
     .article--content {
-        font-size: 1.25rem;
+        font-size: 16px;
     }
     @media only screen and (max-width: 900px) {
         .article--content {
             text-align: justify;
-            font-size: 1.1rem;
+            font-size: 18px;
         }
     }
 </style>

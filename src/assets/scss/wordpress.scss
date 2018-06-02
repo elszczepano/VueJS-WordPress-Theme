@@ -38,6 +38,11 @@ a img.aligncenter {
   margin-right: auto;
 }
 
+.article--content {
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 180%;
+  }
+}
 @media only screen and (max-width: 700px) {
   .article--content img {
     width: 95%;

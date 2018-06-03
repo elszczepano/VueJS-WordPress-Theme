@@ -13,7 +13,7 @@
                    <main-site-categories-sample :category="promotedCategories[0]"/>
                </v-flex>
                <!--
-               // I'll add this section when blog will grow
+               // I'll add this section when the blog will grow
                <v-flex xs12>
                    <main-site-categories-sample :category="promotedCategories[1]"/>
                </v-flex>

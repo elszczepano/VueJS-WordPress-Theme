@@ -7,6 +7,7 @@
                 <v-flex mx-auto xs12 sm6 my-5>
                     <form>
                         <v-text-field
+                                color="red lighten-1"
                                 name="newsletter"
                                 v-validate="'required|email'"
                                 @keyup.enter="unsubscribe"
@@ -17,7 +18,7 @@
                         <v-btn @click="unsubscribe">submit</v-btn>
                     </form>
                 </v-flex>
-                <v-flex mx-auto xs12>
+                <v-flex class="title" mx-auto xs12>
                     <strong :class="{ 'text__success': unsubscribed, 'text__danger': !unsubscribed }">{{message}}</strong>
                 </v-flex>
             </v-layout>

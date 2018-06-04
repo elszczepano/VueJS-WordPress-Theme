@@ -3,20 +3,22 @@
         <h2 class="display-2 main-page--header"><span class="text__red">N</span>ajnowsze artykuły</h2>
         <v-layout row wrap>
             <v-flex d-flex xs12 md8>
-                <v-card>
-                    <v-card-media class="first-article--picture" :src="thumbnail" height="575px">
-                    </v-card-media>
-                    <v-card-title primary-title>
-                        <div>
-                            <h3 class="headline mb-0" v-html="title"></h3>
-                            <div>{{description | slice}}...</div>
-                        </div>
-                    </v-card-title>
-                    <v-card-actions>
-                        <v-spacer></v-spacer>
-                        <router-link :to="`/post/${slug}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
-                    </v-card-actions>
-                </v-card>
+                    <v-card>
+                        <router-link :to="`/post/${slug}`">
+                        <v-card-media class="first-article--picture" :src="thumbnail" height="606px">
+                        </v-card-media>
+                        <v-card-title primary-title>
+                            <div>
+                                <h3 class="headline mb-0" v-html="title"></h3>
+                                <div>{{description | slice}}...</div>
+                            </div>
+                        </v-card-title>
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <router-link :to="`/post/${slug}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
+                        </v-card-actions>
+                        </router-link>
+                    </v-card>
             </v-flex>
             <v-flex d-flex xs12 md4>
                 <v-layout row wrap>

@@ -1,17 +1,19 @@
 <template>
-    <v-card>
-        <v-card-media :src="thumbnail" height="200px"></v-card-media>
-        <v-card-title primary-title>
-            <div>
-                <h3 class="headline mb-0" v-html="title"></h3>
-                <div>{{description | slice}}...</div>
-            </div>
-        </v-card-title>
-        <v-card-actions>
-            <v-spacer></v-spacer>
-            <router-link :to="`/post/${slug}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
-        </v-card-actions>
-    </v-card>
+    <router-link :to="`/post/${slug}`">
+        <v-card>
+            <v-card-media :src="thumbnail" height="200px"></v-card-media>
+            <v-card-title primary-title>
+                <div>
+                    <h3 class="headline mb-0" v-html="title"></h3>
+                    <div>{{description | slice}}...</div>
+                </div>
+            </v-card-title>
+            <v-card-actions>
+                <v-spacer></v-spacer>
+                <router-link :to="`/post/${slug}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
+            </v-card-actions>
+        </v-card>
+    </router-link>
 </template>
 
 <script>

@@ -1,21 +1,23 @@
 <template>
-    <v-content >
+    <v-content>
         <v-flex xs12 my-3>
-            <v-card>
-                <v-layout row wrap>
-                    <v-flex xs12 sm4>
-                        <v-card-media :src="thumbnail" height="200px"></v-card-media>
-                    </v-flex>
-                    <v-flex xs12 sm8 pa-3>
-                        <div class="headline" v-html="title"></div>
-                        <div>{{description | slice}}...</div>
-                        <v-card-actions>
-                            <v-spacer></v-spacer>
-                            <router-link :to="`/post/${slug}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
-                        </v-card-actions>
-                    </v-flex>
-                </v-layout>
-            </v-card>
+            <router-link :to="`/post/${slug}`">
+                <v-card>
+                    <v-layout row wrap>
+                        <v-flex xs12 sm4>
+                            <v-card-media :src="thumbnail" height="200px"></v-card-media>
+                        </v-flex>
+                        <v-flex xs12 sm8 pa-3>
+                            <div class="headline" v-html="title"></div>
+                            <div>{{description | slice}}...</div>
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <router-link :to="`/post/${slug}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
+                            </v-card-actions>
+                        </v-flex>
+                    </v-layout>
+                </v-card>
+            </router-link>
         </v-flex>
     </v-content>
 </template>

@@ -6,6 +6,7 @@ import ArticlesList from '../Components/ArticlesList';
 import Page from '../Components/Page';
 import Search from '../Components/Search';
 import Subscribed from '../Components/Subscribed';
+import Unsubscribe from '../Components/Unsubscribe';
 import Portfolio from '../Components/Portfolio';
 import Categories from '../Components/Categories';
 import CategoryArticles from '../Components/CategoryArticles';
@@ -62,6 +63,11 @@ export default new Router({
             path: '/subscribed',
             name: 'subscribed',
             component: Subscribed
+        },
+        {
+            path: '/unsubscribe',
+            name: 'unsubscribe',
+            component: Unsubscribe
         }
     ],
 

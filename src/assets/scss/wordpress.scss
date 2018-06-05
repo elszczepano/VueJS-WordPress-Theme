@@ -39,8 +39,23 @@ a img.aligncenter {
 }
 
 .article--content {
-  h1, h2, h3, h4, h5, h6 {
+  h1 {
+    font-size: 220%;
+  }
+  h2 {
+    font-size: 200%;
+  }
+  h3 {
     font-size: 180%;
+  }
+  h4 {
+    font-size: 160%;
+  }
+  h5 {
+    font-size: 140%;
+  }
+  h6 {
+    font-size: 120%;
   }
 }
 @media only screen and (max-width: 700px) {

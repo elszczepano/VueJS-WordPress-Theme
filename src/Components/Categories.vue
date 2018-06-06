@@ -42,6 +42,7 @@
         }),
         filters: {
             polishGrammar: function(value) {
+                if(value > 11 && value < 15) return `${value} wpisów`;
                 if(!((value-2)%10)||!((value-3)%10)||!((value-4)%10)) return `${value} wpisy`;
                 switch(value) {
                     case 0:

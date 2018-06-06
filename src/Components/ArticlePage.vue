@@ -2,7 +2,10 @@
     <v-app>
         <main-header/>
         <v-layout class="mx-auto default--container">
-            <v-layout mt-3 row wrap>
+            <v-flex class="loading-spinner" v-if="!ready" xs12 d-flex justify-center align-center>
+                <scale-loader color="#E03C31"></scale-loader>
+            </v-flex>
+            <v-layout v-show="ready" mt-3 row wrap>
                 <v-flex xs12>
                     <article-header :details="article[0]"/>
                 </v-flex>
@@ -24,6 +27,7 @@
     import ArticleHeader from './ArticleHeader';
     import Comments from './Comments';
     import ArticleContent from './ArticleContent';
+    import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue';
     import API from '../api';
     import router from '../router';
     export default {
@@ -32,16 +36,19 @@
             Comments,
             ArticleHeader,
             MainFooter,
-            MainHeader
+            MainHeader,
+            ScaleLoader
         },
         data: () => ({
-            article: []
+            article: [],
+            ready: false
         }),
         name: 'article-page',
         methods: {
             loadContent() {
                 API.get(`posts?slug=${this.$route.params.slug}`)
                     .then(({data}) => this.article = data)
+                    .then(() => this.ready = true)
                     .catch(() => {
                         router.push({path: '/'});
                     });

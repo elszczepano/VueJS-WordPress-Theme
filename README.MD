@@ -27,6 +27,9 @@ or (with code coverage)
 
     npm run coverage
 
+Run eslint
+    
+    esw
 ##
 
 *Created by Dominik Szczepaniak*

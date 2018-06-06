@@ -2,9 +2,12 @@
    <v-app>
       <main-header/>
        <v-layout class="mx-auto default--container">
-           <v-layout row wrap>
+           <v-flex class="loading-spinner" v-if="!ready" xs12 d-flex justify-center align-center>
+               <scale-loader color="#E03C31"></scale-loader>
+           </v-flex>
+           <v-layout v-show="ready" row wrap>
                <v-flex xs12>
-                   <newest-articles/>
+                   <newest-articles @ready="ready = true"/>
                </v-flex>
                <v-flex xs12>
                    <most-popular/>
@@ -30,6 +33,7 @@
     import NewestArticles from './NewestArticles';
     import MainSiteCategoriesSample from './MainSiteCategoriesSample';
     import MostPopular from './MostPopular';
+    import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue';
     export default {
         name: 'Main',
         components: {
@@ -37,9 +41,11 @@
             MainSiteCategoriesSample,
             NewestArticles,
             MainHeader,
-            MainFooter
+            MainFooter,
+            ScaleLoader
         },
         data: () => ({
+            ready: false,
             promotedCategories: [
                 {
                     name: 'Frontend',

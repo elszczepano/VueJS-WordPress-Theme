@@ -57,6 +57,7 @@
                     this.thumbnail = this.articles[0]['better_featured_image']['source_url'];
                     this.description = this.articles[0]['excerpt']['rendered'];
                     this.slug = this.articles[0]['slug'];
+                    this.$emit('ready');
                 });
         }
     };

@@ -2,10 +2,13 @@
     <v-app>
         <main-header/>
         <v-layout row wrap class="mx-auto default--container">
-            <v-flex xs12 ma-2>
+            <v-flex xs12 my-4 text-xs-center>
                 <h2 class="display-2 main-page--header">Kategorie</h2>
             </v-flex>
-            <v-flex xs12>
+            <v-flex class="loading-spinner" v-if="!ready" xs12 d-flex justify-center align-center>
+                <scale-loader color="#E03C31"></scale-loader>
+            </v-flex>
+            <v-flex xs12 v-show="ready">
                 <v-list class="grey lighten-5" three-line>
                     <router-link v-for="(category, index) in categories" :key="`${index}`" :to="`/category/${category.slug}`">
                         <v-list-tile  @click="">
@@ -30,15 +33,18 @@
 <script>
     import MainHeader from './MainHeader';
     import MainFooter from './MainFooter';
+    import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue';
     import API from '../api';
     export default {
         components: {
             MainFooter,
-            MainHeader
+            MainHeader,
+            ScaleLoader
         },
         name: 'categories',
         data: () => ({
-            categories: []
+            categories: [],
+            ready: false
         }),
         filters: {
             polishGrammar: function(value) {
@@ -60,6 +66,7 @@
         mounted() {
             API.get('categories')
                 .then(({data}) => this.categories = data)
+                .then(() => this.ready = true)
         }
     };
 </script>

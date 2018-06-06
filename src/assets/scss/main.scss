@@ -17,6 +17,9 @@ a {
     color: $primary-red;
   }
 }
+.loading-spinner {
+  min-height: 80vh;
+}
 @media only screen and (min-width: 1000px) {
   .default--container {
     min-width: 900px;

@@ -67,9 +67,11 @@
                 return value.slice(0, 10);
             },
             time: function(value) {
-                if(value.length < 3600) return '1 minuta'
-                else if(value.length < 9000) return `${Math.ceil(value.length/1800)} minuty`
-                else return `${Math.ceil(value.length/1800)} minut`
+                const val = Math.ceil(value.length/1200);
+                if(val === 1) return '1 minuta'
+                else if(val <= 4) return `${Math.ceil(value.length/1200)} minuty`
+                else if(val >= 22 && (!((val-2)%10)||!((val-3)%10)||!((val-4)%10))) return `${Math.ceil(value.length/1200)} minuty`
+                else return `${Math.ceil(value.length/1200)} minut`
             }
         },
         watch: {

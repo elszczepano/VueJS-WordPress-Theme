@@ -65,8 +65,10 @@
         },
         mounted() {
             API.get('categories')
-                .then(({data}) => this.categories = data)
-                .then(() => this.ready = true)
+                .then(({data}) => {
+                    this.categories = data;
+                    this.ready = true;
+                })
         }
     };
 </script>

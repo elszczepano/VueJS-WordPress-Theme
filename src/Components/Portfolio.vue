@@ -39,8 +39,10 @@
         }),
         mounted() {
             API.get('projects?per_page=100')
-                .then(({data}) => this.projects = data)
-                .then(() => this.ready = true)
+                .then(({data}) => {
+                    this.projects = data;
+                    this.ready = true
+                })
         }
     };
 

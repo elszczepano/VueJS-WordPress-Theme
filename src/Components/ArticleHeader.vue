@@ -69,9 +69,9 @@
             time: function(value) {
                 const val = Math.ceil(value.length/1200);
                 if(val === 1) return '1 minuta'
-                else if(val <= 4) return `${Math.ceil(value.length/1200)} minuty`
-                else if(val >= 22 && (!((val-2)%10)||!((val-3)%10)||!((val-4)%10))) return `${Math.ceil(value.length/1200)} minuty`
-                else return `${Math.ceil(value.length/1200)} minut`
+                else if(val <= 4) return `${val} minuty`
+                else if(val >= 22 && (!((val-2)%10)||!((val-3)%10)||!((val-4)%10))) return `${val} minuty`
+                else return `${val} minut`
             }
         },
         watch: {

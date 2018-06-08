@@ -1,8 +1,8 @@
-import path from 'path';
-import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
-import VueLoaderPlugin from 'vue-loader/lib/plugin';
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
+var path = require('path');
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+var VueLoaderPlugin = require('vue-loader/lib/plugin');
+var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
 const prodPlugins = [

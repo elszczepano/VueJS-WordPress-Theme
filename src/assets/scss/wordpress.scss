@@ -39,23 +39,26 @@ a img.aligncenter {
 }
 
 .article--content {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+  }
   h1 {
-    font-size: 220%;
+    font-size: 240%;
   }
   h2 {
-    font-size: 200%;
+    font-size: 220%;
   }
   h3 {
-    font-size: 180%;
+    font-size: 200%;
   }
   h4 {
-    font-size: 160%;
+    font-size: 180%;
   }
   h5 {
-    font-size: 140%;
+    font-size: 160%;
   }
   h6 {
-    font-size: 120%;
+    font-size: 140%;
   }
 }
 @media only screen and (max-width: 700px) {
@@ -71,6 +74,7 @@ pre code {
 }
 
 @media (max-width: 988px) {
+
   .wp-caption, pre code {
     width: 85% !important;
     margin: 0 auto !important;

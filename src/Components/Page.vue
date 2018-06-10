@@ -2,7 +2,10 @@
     <v-app>
         <main-header/>
         <v-layout class="mx-auto default--container">
-            <v-layout mt-3 row wrap mx-2 my-5>
+            <v-flex class="loading-spinner" v-if="!ready" xs12 d-flex justify-center align-center>
+                <scale-loader color="#E03C31"></scale-loader>
+            </v-flex>
+            <v-layout v-show="ready" mt-3 row wrap mx-2 my-5>
                 <v-flex xs12>
                     <h2 class="display-2">{{title}}</h2>
                 </v-flex>
@@ -18,16 +21,19 @@
 <script>
     import MainHeader from './MainHeader';
     import MainFooter from './MainFooter';
+    import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue';
     import router from '../router';
     import API from '../api';
     export default {
         components: {
             MainFooter,
-            MainHeader
+            MainHeader,
+            ScaleLoader
         },
         data:() => ({
             content: '',
-            title: ''
+            title: '',
+            ready: false
         }),
         name: 'page',
         methods: {
@@ -36,6 +42,7 @@
                     .then(({data}) => {
                         this.content = data[0]['content']['rendered'];
                         this.title = data[0]['title']['rendered'];
+                        this.ready = true;
                     })
                     .catch(() => {
                         router.push({path: '/'});

@@ -50,6 +50,7 @@
                     .then(({data}) => {
                         this.article = data;
                         this.ready = true;
+                        if(!data.length) router.push({path: '/'});
                     })
                     .catch(() => {
                         router.push({path: '/'});

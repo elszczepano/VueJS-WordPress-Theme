@@ -51,7 +51,8 @@
                         API.get(`posts?categories=${this.categoryId}&per_page=${param}`)
                             .then(response => {
                                 this.postsCount = parseInt(response.headers['x-wp-total'], 10);
-                                this.articles = response['data']
+                                this.articles = response['data'];
+                                if(!response['data'].length) router.push({path: '/'});
                             })
                     })
                     .catch(() => {

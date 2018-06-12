@@ -35,7 +35,7 @@
     import MostPopular from './MostPopular';
     import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue';
     export default {
-        name: 'Main',
+        name: 'MainComponent',
         components: {
             MostPopular,
             MainSiteCategoriesSample,

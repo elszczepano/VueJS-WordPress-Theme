@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Main from '../Components/Main';
+import MainComponent from '../Components/MainComponent';
 import ArticlePage from '../Components/ArticlePage';
 import ArticlesList from '../Components/ArticlesList';
 import Page from '../Components/Page';
@@ -20,7 +20,7 @@ export default new Router({
             path: '/',
             alias: '*',
             name: 'home',
-            component: Main
+            component: MainComponent
         },
         {
             path: '/post/:slug',

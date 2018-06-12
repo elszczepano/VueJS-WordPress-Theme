@@ -6,8 +6,8 @@
                 <scale-loader color="#E03C31"></scale-loader>
             </v-flex>
             <v-layout v-show="ready" mt-3 row wrap mx-2 my-5>
-                <v-flex xs12>
-                    <h2 class="display-2">{{title}}</h2>
+                <v-flex xs12 mt-3 mb-5>
+                    <h1 class="display-2">{{title}}</h1>
                 </v-flex>
                 <v-flex xs12>
                     <div class="article--content" v-html="content"></div>

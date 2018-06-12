@@ -1,6 +1,6 @@
 <template>
     <v-container grid-list-md>
-        <h2 class="headline main-page--header">Najpopularniejsze artykuły</h2>
+        <h2 class="display-1 main-page--header">Najpopularniejsze artykuły</h2>
         <v-layout row wrap>
             <v-flex v-for="index in 3" :key="`${index}`" xs12 md4>
                 <article-sample :details="articles[index-1]" />

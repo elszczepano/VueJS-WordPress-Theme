@@ -1,6 +1,5 @@
 # VueJS - Wordpress Blog Theme
 
-----
 ## Installation
 
 Download or clone this repository.

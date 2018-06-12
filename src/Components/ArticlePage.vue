@@ -6,15 +6,17 @@
                 <scale-loader color="#E03C31"></scale-loader>
             </v-flex>
             <v-layout v-show="ready" mt-3 row wrap>
-                <v-flex xs12>
-                    <article-header :details="article[0]"/>
-                </v-flex>
-                <v-flex xs12>
-                    <article-content :details="article[0]"/>
-                </v-flex>
-                <v-flex xs12>
-                    <comments :details="article[0]"/>
-                </v-flex>
+                <article>
+                    <v-flex xs12>
+                        <article-header :details="article[0]"/>
+                    </v-flex>
+                    <v-flex xs12>
+                        <article-content :details="article[0]"/>
+                    </v-flex>
+                    <v-flex xs12>
+                        <comments :details="article[0]"/>
+                    </v-flex>
+                </article>
             </v-layout>
         </v-layout>
         <main-footer/>

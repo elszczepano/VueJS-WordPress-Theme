@@ -1,6 +1,6 @@
 <template>
     <v-layout my-5 mx-3 class="mx-auto default--container">
-        <div class="article--content" v-html="content"></div>
+        <section class="article--content" v-html="content"></section>
     </v-layout>
 </template>
 
@@ -26,12 +26,12 @@
 
 <style scoped>
     .article--content {
-        font-size: 16px;
+        font-size: 18px;
     }
     @media only screen and (max-width: 900px) {
         .article--content {
             text-align: justify;
-            font-size: 18px;
+            font-size: 20px;
         }
     }
 </style>

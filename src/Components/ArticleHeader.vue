@@ -1,13 +1,13 @@
 <template>
     <v-container grid-list-md >
-        <v-layout class="mx-auto default--container article--header">
+        <header class="mx-auto default--container article--header">
             <v-flex xs12>
                 <v-card>
                     <v-card-media class="thumbnail" :src="thumbnail" height="500px"></v-card-media>
                 </v-card>
                 <v-layout row wrap>
                     <v-flex text-md-center pa-3 xs12>
-                        <h3 class="display-1" v-html="title"></h3>
+                        <h1 class="article--header__heading display-1" v-html="title"></h1>
                     </v-flex>
                     <v-layout text-xs-center row wrap>
                         <v-flex xs12 sm6 md3 class="align-center">
@@ -28,7 +28,7 @@
                     </v-layout>
                 </v-layout>
             </v-flex>
-        </v-layout>
+        </header>
     </v-container>
 </template>
 
@@ -98,7 +98,11 @@
         .thumbnail {
             height: 200px !important;
         }
+        .article--header__heading {
+            text-align: justify;
+        }
     }
+
     .article--header {
         border-bottom: $default-border;
     }

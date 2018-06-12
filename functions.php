@@ -13,6 +13,10 @@ add_filter( 'acf/rest_api/field_settings/show_in_rest', '__return_true' );
 
 show_admin_bar(false);
 
+//disable jquery
+
+wp_deregister_script('jquery');
+
 //unregister tags
 
 function myprefix_unregister_tags() {

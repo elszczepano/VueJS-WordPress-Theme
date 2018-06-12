@@ -1,12 +1,18 @@
-var path = require('path');
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-var VueLoaderPlugin = require('vue-loader/lib/plugin');
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require('path');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");
 const devMode = process.env.NODE_ENV !== 'production';
 
 const prodPlugins = [
     new UglifyJsPlugin(),
+    new CompressionPlugin({
+        test: /\.js/,
+        asset: '[path].gz[query]',
+        algorithm: 'gzip'
+    }),
     new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.optimize\.css$/g,
         cssProcessor: require('cssnano'),

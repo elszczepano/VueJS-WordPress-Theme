@@ -5,12 +5,12 @@
             <v-flex d-flex xs12 md8>
                     <v-card>
                         <router-link :to="`/post/${slug}`">
-                        <v-card-media class="first-article--picture" :src="thumbnail" height="606px">
+                        <v-card-media class="first-article--picture" :src="thumbnail" height="613px">
                         </v-card-media>
                         <v-card-title primary-title>
                             <div>
                                 <h3 class="headline mb-0" v-html="title"></h3>
-                                <div>{{description | slice}}...</div>
+                                <div class="subheading">{{description | slice}}...</div>
                             </div>
                         </v-card-title>
                         <v-card-actions>

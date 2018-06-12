@@ -97,7 +97,7 @@
                     <v-list-tile slot="activator">
                         <v-list-tile-title>Linki</v-list-tile-title>
                     </v-list-tile>
-                    <v-list-tile target="blank" :href="item.link" v-for="(item, index) in socialMedia" :key="index">
+                    <v-list-tile target="blank" rel="nofollow" :href="item.link" v-for="(item, index) in socialMedia" :key="index">
                         <v-list-tile-action>
                             <v-icon>{{item.icon}}</v-icon>
                         </v-list-tile-action>

@@ -10,7 +10,7 @@
                 <article-list-sample :details="article" v-for="(article, index) in articles" :key="`${index}`"/>
                 <infinite-loading force-use-infinite-wrapper="true" @infinite="infiniteHandler">
                     <span class="headline" v-show="articles.length>10" v-if="articles.length" slot="no-more">Koniec artykułów</span>
-                    <span class="headline" v-else slot="no-more">Brak wpisów w tej kategorii</span>
+                    <span class="headline" v-else slot="no-more">{{message}}</span>
                 </infinite-loading>
             </v-flex>
         </v-layout>
@@ -39,6 +39,7 @@
             category: '',
             postsCount: 0,
             categoryId: 0,
+            message: ''
         }),
         methods: {
             loadPosts(param) {
@@ -52,6 +53,7 @@
                             .then(response => {
                                 this.postsCount = parseInt(response.headers['x-wp-total'], 10);
                                 this.articles = response['data'];
+                                if(!this.articles.length) this.message = "Brak wpisów w tej kategorii";
                             })
                     })
                     .catch(() => {

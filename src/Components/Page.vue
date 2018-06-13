@@ -61,13 +61,4 @@
 </script>
 
 <style scoped>
-    .article--content {
-        font-size: 1.25rem;
-    }
-    @media only screen and (max-width: 900px) {
-        .article--content {
-            text-align: justify;
-            font-size: 1.1rem;
-        }
-    }
 </style>

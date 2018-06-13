@@ -25,13 +25,4 @@
 </script>
 
 <style scoped>
-    .article--content {
-        font-size: 18px;
-    }
-    @media only screen and (max-width: 900px) {
-        .article--content {
-            text-align: justify;
-            font-size: 20px;
-        }
-    }
 </style>

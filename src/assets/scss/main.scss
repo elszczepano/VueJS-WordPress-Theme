@@ -1,5 +1,19 @@
 @import 'variables';
 @import 'wordpress';
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #263238;
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #374349;
+}
+
 a {
   text-decoration: none;
   color: black;

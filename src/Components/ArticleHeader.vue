@@ -2,7 +2,7 @@
     <v-container grid-list-md >
         <header class="mx-auto default--container article--header">
             <v-flex xs12>
-                <v-card>
+                <v-card tile>
                     <v-card-media class="thumbnail" :src="thumbnail" height="500px"></v-card-media>
                 </v-card>
                 <v-layout row wrap>

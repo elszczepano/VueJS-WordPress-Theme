@@ -29,11 +29,6 @@ export default new Router({
             component: ArticlePage
         },
         {
-            path: '/page/:slug',
-            name: 'page',
-            component: Page
-        },
-        {
             path: '/posts',
             alias: '/post',
             name: 'articlesList',
@@ -68,6 +63,11 @@ export default new Router({
             path: '/unsubscribe',
             name: 'unsubscribe',
             component: Unsubscribe
+        },
+        {
+            path: '/:slug',
+            name: 'page',
+            component: Page
         }
     ],
 

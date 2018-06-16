@@ -146,13 +146,13 @@
                 .then(({data})=> {
                     this.partnershipItems.push({
                        title: data[2]['title']['rendered'],
-                       link: `/page/${data[2]['slug']}`
+                       link: `/${data[2]['slug']}`
                     });
                     for(let i=0; i<data.length; i++) {
                         if(i === 2) continue;
                         this.authorItems.push({
                             title: data[i]['title']['rendered'],
-                            link: `/page/${data[i]['slug']}`
+                            link: `/${data[i]['slug']}`
                         });
                     }
                 })

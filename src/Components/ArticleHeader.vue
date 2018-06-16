@@ -7,7 +7,7 @@
                 </v-card>
                 <v-layout row wrap>
                     <v-flex text-md-center pa-3 xs12>
-                        <h1 class="article--header__heading display-1" v-html="title"></h1>
+                        <h1 class="display-1" v-html="title"></h1>
                     </v-flex>
                     <v-layout text-xs-center row wrap>
                         <v-flex xs12 sm6 md3 class="align-center">
@@ -97,9 +97,6 @@
     @media only screen and (max-width: 600px) {
         .thumbnail {
             height: 200px !important;
-        }
-        .article--header__heading {
-            text-align: justify;
         }
     }
 

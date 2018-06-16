@@ -74,7 +74,30 @@ pre code {
 }
 
 @media (max-width: 988px) {
-
+  h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+    font-weight: 500;
+  }
+  .article--content {
+    h1 {
+      font-size: 180%;
+    }
+    h2 {
+      font-size: 160%;
+    }
+    h3 {
+      font-size: 140%;
+    }
+    h4 {
+      font-size: 120%;
+    }
+    h5 {
+      font-size: 100%;
+    }
+    h6 {
+      font-size: 80%;
+    }
+  }
   .wp-caption, pre code {
     width: 85% !important;
     margin: 0 auto !important;

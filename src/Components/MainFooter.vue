@@ -2,14 +2,14 @@
     <v-footer height="auto" class="blue-grey darken-4 white--text pa-2">
         <v-layout row wrap>
             <v-flex xs12 md7>
-                <v-list two-line class="blue-grey darken-4" dark>
+                <v-list dense two-line class="blue-grey darken-4" dark>
                     <v-subheader>Kategorie:</v-subheader>
                     <router-link v-for="(category, index) in categories" :key="`${index}`" class="white--text" :to="`/category/${category.slug}`">
                         <v-list-tile @click="">
                             <v-list-tile-action>
                                 <i class="material-icons red--marker">chevron_right</i>
                             </v-list-tile-action>
-                            <v-list-tile-content>
+                            <v-list-tile-content class="subheading list--tile__name">
                                 <v-list-tile-title>{{category.name}}</v-list-tile-title>
                             </v-list-tile-content>
                         </v-list-tile>
@@ -76,5 +76,7 @@
 </script>
 
 <style scoped>
-
+    .list--tile__name {
+        font-weight: 300;
+    }
 </style>

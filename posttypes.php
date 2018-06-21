@@ -7,7 +7,7 @@ function posttype_projects() {
         'singular_name'      => "Projekt",
         'menu_name'          => "Projekty",
         'name_admin_bar'     => "Projekty",
-        'add_new'            => "Dodaj nowe projekty",
+        'add_new'            => "Dodaj nowy projekt",
         'add_new_item'       => "Dodaj nowy projekt",
         'new_item'           => "Nowy projekt",
         'edit_item'          => "Edytuj projekt",

@@ -14,11 +14,6 @@
                                 <v-list-tile-title>{{item.title}}</v-list-tile-title>
                             </v-list-tile>
                         </router-link>
-                        <router-link to="/unsubscribe">
-                            <v-list-tile>
-                                <v-list-tile-title>Newsletter</v-list-tile-title>
-                            </v-list-tile>
-                        </router-link>
                     </v-list>
                 </v-menu>
                 <v-menu offset-y>
@@ -119,7 +114,8 @@
             searchPhrase: "",
             blogItems: [
                 { title: 'Kategorie', link: '/categories' },
-                { title: 'Artykuły', link: '/posts' }
+                { title: 'Artykuły', link: '/posts' },
+                { title: 'Newsletter', link: '/unsubscribe'}
             ],
             partnershipItems: [],
             authorItems: [

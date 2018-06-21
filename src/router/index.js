@@ -8,6 +8,7 @@ import Search from '../Components/Search';
 import Subscribed from '../Components/Subscribed';
 import Unsubscribe from '../Components/Unsubscribe';
 import Portfolio from '../Components/Portfolio';
+import NotFound from '../Components/NotFound';
 import Categories from '../Components/Categories';
 import CategoryArticles from '../Components/CategoryArticles';
 
@@ -18,7 +19,6 @@ export default new Router({
     routes: [
         {
             path: '/',
-            alias: '*',
             name: 'home',
             component: MainComponent
         },
@@ -68,6 +68,11 @@ export default new Router({
             path: '/:slug',
             name: 'page',
             component: Page
+        },
+        {
+            path: '*',
+            name: 'NotFound',
+            component: NotFound
         }
     ],
 

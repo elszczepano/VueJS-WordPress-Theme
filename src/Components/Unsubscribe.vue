@@ -15,7 +15,7 @@
                                 label="E-mail"
                                 required
                         ></v-text-field>
-                        <v-btn @click="unsubscribe">submit</v-btn>
+                        <v-btn @click="unsubscribe">Wypisuję się!</v-btn>
                     </form>
                 </v-flex>
                 <v-flex class="title" mx-auto xs12>

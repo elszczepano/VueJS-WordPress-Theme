@@ -3,7 +3,7 @@
         <main-header/>
         <v-layout class="mx-auto default--container" my-5>
             <v-layout row wrap text-xs-center>
-                <v-flex xs12 my-5><h2 class="display-1">Korzystając z tego formularza możesz wypisać się z newslettera</h2></v-flex>
+                <v-flex xs12 my-5><h2 class="display-1 text-xs-center">Korzystając z tego formularza możesz wypisać się z newslettera</h2></v-flex>
                 <v-flex mx-auto xs12 sm6 my-5>
                     <form>
                         <v-text-field

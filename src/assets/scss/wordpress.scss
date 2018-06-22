@@ -77,6 +77,12 @@ a img.aligncenter {
   h6 {
     font-size: 140%;
   }
+  p iframe {
+    max-width: 90% !important;
+    max-height: 350px !important;
+    display: block;
+    margin: 0 auto;
+  }
 }
 @media only screen and (max-width: 700px) {
   .article--content img {

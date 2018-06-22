@@ -11,5 +11,6 @@
 <body>
 <div id="app"></div>
 <?php wp_footer(); ?>
+<noscript>Twoja przeglądarka nie wspiera JavaScript.</noscript>
 </body>
 </html>

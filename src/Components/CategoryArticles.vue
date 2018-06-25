@@ -9,7 +9,7 @@
                 </h2>
                 <article-list-sample :details="article" v-for="(article, index) in articles" :key="`${index}`"/>
                 <infinite-loading force-use-infinite-wrapper="true" @infinite="infiniteHandler">
-                    <span class="headline" v-show="articles.length>10" v-if="articles.length" slot="no-more">Koniec artykułów</span>
+                    <span class="headline" v-show="articles.length>5" v-if="articles.length" slot="no-more">Koniec artykułów</span>
                     <span class="headline" v-else slot="no-more">{{message}}</span>
                 </infinite-loading>
             </v-flex>
@@ -63,19 +63,19 @@
             infiniteHandler($state) {
                 setTimeout(() => {
                     const articles = this.articles.length;
-                    this.loadPosts(articles + 10);
+                    this.loadPosts(articles + 5);
                     if(this.articles.length === this.postsCount) $state.complete();
                     $state.loaded();
-                }, 500);
+                }, 1000);
             }
         },
         watch: {
             '$route' () {
-                this.loadPosts(10);
+                this.loadPosts(5);
             }
         },
         mounted() {
-            this.loadPosts(10);
+            this.loadPosts(5);
         }
     };
 </script>

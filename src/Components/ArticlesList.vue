@@ -6,7 +6,7 @@
                 <h2 class="display-2 text-xs-center main-page--header">Lista artykułów</h2>
                 <article-list-sample :details="articles[index]" v-for="(article, index) in articles" :key="`${index}`" />
                 <infinite-loading force-use-infinite-wrapper="true" @infinite="infiniteHandler">
-                    <span v-show="articles.length>10" class="headline" slot="no-more">Koniec artykułów...</span>
+                    <span v-show="articles.length>5" class="headline" slot="no-more">Koniec artykułów...</span>
                 </infinite-loading>
             </v-flex>
         </v-layout>
@@ -43,14 +43,14 @@
             infiniteHandler($state) {
                 setTimeout(() => {
                     const articles = this.articles.length;
-                    this.loadPosts(articles + 10);
+                    this.loadPosts(articles + 5);
                     if(this.articles.length === this.postsCount) $state.complete();
                     $state.loaded();
-                }, 500);
+                }, 1000);
             }
         },
         mounted() {
-            this.loadPosts(10);
+            this.loadPosts(5);
         }
     };
 </script>

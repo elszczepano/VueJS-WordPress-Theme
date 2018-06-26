@@ -68,6 +68,16 @@
                         </v-list-tile>
                     </router-link>
                 </v-list-group>
+                <v-list-group prepend-icon="local_offer" lazy>
+                    <v-list-tile slot="activator">
+                        <v-list-tile-title>Kategorie</v-list-tile-title>
+                    </v-list-tile>
+                    <router-link v-for="(category, index) in categories" :key="index" :to="`/category/${category.slug}`">
+                        <v-list-tile>
+                            <v-list-tile-title>{{category.name}}</v-list-tile-title>
+                        </v-list-tile>
+                    </router-link>
+                </v-list-group>
                 <v-list-group prepend-icon="group" lazy>
                     <v-list-tile slot="activator">
                         <v-list-tile-title>Współpraca</v-list-tile-title>
@@ -112,6 +122,7 @@
         data: () => ({
             drawer: null,
             searchPhrase: "",
+            categories: [],
             blogItems: [
                 { title: 'Kategorie', link: '/categories' },
                 { title: 'Artykuły', link: '/posts' },
@@ -151,7 +162,9 @@
                             link: `/${data[i]['slug']}`
                         });
                     }
-                })
+                });
+            API.get('categories')
+                .then(({data}) => this.categories = data)
         }
     }
 </script>

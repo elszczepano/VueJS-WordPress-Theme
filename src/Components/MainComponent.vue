@@ -15,12 +15,9 @@
                <v-flex xs12>
                    <main-site-categories-sample :category="promotedCategories[0]"/>
                </v-flex>
-               <!--
-               // I'll add this section when the blog will grow
                <v-flex xs12>
                    <main-site-categories-sample :category="promotedCategories[1]"/>
                </v-flex>
-               -->
            </v-layout>
        </v-layout>
       <main-footer />
@@ -50,6 +47,10 @@
                 {
                     name: 'Frontend',
                     id: 3
+                },
+                {
+                    name: 'Wordpress',
+                    id: 7
                 }
             ]
         }),

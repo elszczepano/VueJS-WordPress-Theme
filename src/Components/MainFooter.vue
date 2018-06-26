@@ -1,7 +1,7 @@
 <template>
     <v-footer height="auto" class="blue-grey darken-4 white--text pa-2">
         <v-layout row wrap>
-            <v-flex xs12 md7>
+            <v-flex xs12 md7 class="hidden-sm-and-down">
                 <v-list dense two-line class="blue-grey darken-4" dark>
                     <v-subheader>Kategorie:</v-subheader>
                     <router-link v-for="(category, index) in categories" :key="`${index}`" class="white--text" :to="`/category/${category.slug}`">

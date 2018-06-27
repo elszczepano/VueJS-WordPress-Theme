@@ -46,6 +46,9 @@
                 v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
             ]
         }),
+        mounted() {
+            document.title = 'Wypisz się z newslettera - devszczepaniak.pl';
+        },
         methods: {
             unsubscribe() {
                 this.message = '';

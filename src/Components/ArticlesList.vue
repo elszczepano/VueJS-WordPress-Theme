@@ -38,6 +38,7 @@
                     .then(response => {
                         this.postsCount = parseInt(response.headers['x-wp-total'], 10);
                         this.articles = response['data'];
+                        document.title = 'Lista artykułów - devszczepaniak.pl';
                     });
             },
             infiniteHandler($state) {

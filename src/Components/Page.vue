@@ -43,6 +43,7 @@
                         this.content = data[0]['content']['rendered'];
                         this.title = data[0]['title']['rendered'];
                         this.ready = true;
+                        document.title = `${this.title} - devszczepaniak.pl`;
                     })
                     .catch(() => {
                         router.push({path: '/'});

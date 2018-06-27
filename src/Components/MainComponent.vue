@@ -41,6 +41,9 @@
             MainFooter,
             ScaleLoader
         },
+        mounted() {
+            document.title = 'Devszczepaniak.pl - blog programistyczny';
+        },
         data: () => ({
             ready: false,
             promotedCategories: [

@@ -47,6 +47,7 @@
                     .then(({data}) => {
                         this.categoryId = data[0]['id'];
                         this.category = data[0]['name'];
+                        document.title = `${this.category} - wpisy - devszczepaniak.pl`;
                     })
                     .then(() => {
                         API.get(`posts?categories=${this.categoryId}&per_page=${param}`)
@@ -76,6 +77,7 @@
         },
         mounted() {
             this.loadPosts(5);
+
         }
     };
 </script>

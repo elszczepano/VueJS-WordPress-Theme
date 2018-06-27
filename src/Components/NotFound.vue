@@ -24,7 +24,10 @@
             MainFooter,
             MainHeader
         },
-        name: 'not-found'
+        name: 'not-found',
+        mounted() {
+            document.title = '404 - Nie znaleziono - devszczepaniak.pl';
+        }
     };
 </script>
 

@@ -86,6 +86,7 @@
                     this.categoriesIds = [...val['details']['categories']];
                     this.getAuthor();
                     this.getCategories();
+                    document.title = `${this.title.replace('&#8211;', '–')} – devszczepaniak.pl`;
                 },
                 deep: true
             }

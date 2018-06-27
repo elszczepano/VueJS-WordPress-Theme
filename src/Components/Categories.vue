@@ -68,6 +68,7 @@
                 .then(({data}) => {
                     this.categories = data;
                     this.ready = true;
+                    document.title = 'Kategorie - devszczepaniak.pl';
                 })
         }
     };

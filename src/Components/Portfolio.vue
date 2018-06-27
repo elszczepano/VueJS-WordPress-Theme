@@ -42,6 +42,7 @@
                 .then(({data}) => {
                     this.projects = data;
                     this.ready = true
+                    document.title = "Portfolio - devszczepaniak.pl";
                 })
         }
     };

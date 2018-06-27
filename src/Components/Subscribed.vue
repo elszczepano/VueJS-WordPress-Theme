@@ -22,7 +22,10 @@
             MainFooter,
             MainHeader
         },
-        name: 'subscribed'
+        name: 'subscribed',
+        mounted() {
+            document.title = 'Zapisano na newsletter - devszczepaniak.pl';
+        },
     };
 </script>
 

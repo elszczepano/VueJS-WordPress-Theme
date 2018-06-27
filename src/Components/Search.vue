@@ -59,6 +59,7 @@
             }
         },
         mounted() {
+            document.title = `Wyniki wyszukiwania dla: ${this.$route.query.s} - devszczepaniak.pl`;
             this.loadPosts(5);
         }
     };

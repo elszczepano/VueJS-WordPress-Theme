@@ -6,8 +6,8 @@
                     <v-card-media class="thumbnail" :src="thumbnail" height="500px"></v-card-media>
                 </v-card>
                 <v-layout row wrap>
-                    <v-flex text-md-center pa-3 xs12>
-                        <h1 class="display-1" v-html="title"></h1>
+                    <v-flex text-xs-center pa-3 xs12>
+                        <h1 class="display-2" v-html="title"></h1>
                     </v-flex>
                     <v-layout text-xs-center row wrap>
                         <v-flex xs12 sm6 md3 class="align-center">
@@ -99,7 +99,6 @@
             height: 200px !important;
         }
     }
-
     .article--header {
         border-bottom: $default-border;
     }

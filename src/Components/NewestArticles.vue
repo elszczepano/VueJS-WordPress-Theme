@@ -10,7 +10,7 @@
                         <v-card-title primary-title>
                             <div>
                                 <h3 class="headline mb-0" v-html="title"></h3>
-                                <div class="subheading">{{description | slice}}...</div>
+                                <div class="subheading">{{description | sliceText(225)}}...</div>
                             </div>
                         </v-card-title>
                         <v-card-actions>
@@ -34,9 +34,12 @@
 <script>
     import ArticleSample from './ArticleSample';
     import API from '../api';
+    import { sliceText } from './mixins/sliceText';
+
     export default {
         components: {ArticleSample},
         name: 'newest-articles',
+        mixins: [sliceText],
         data: () => ({
             articles: [],
             slug: 0,
@@ -44,20 +47,6 @@
             title: '',
             description: ''
         }),
-        filters: {
-            slice: function(value) {
-                let desc = value.slice(3, 225);
-                const length = desc.length;
-                for(let i = length; i>=0; i--) {
-                    if(desc[i-1] === " ") {
-                        desc = desc.slice(0, i-1);
-                        if([',','.'].includes(desc[i-2])) desc = desc.slice(0, i-2);
-                        return desc;
-                    }
-                    desc = desc.slice(0, i-1);
-                }
-            }
-        },
         mounted() {
             API.get('posts?per_page=3')
                 .then(({data}) => this.articles = data)

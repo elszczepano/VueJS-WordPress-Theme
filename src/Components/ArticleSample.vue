@@ -5,7 +5,7 @@
             <v-card-title primary-title>
                 <div>
                     <h3 class="headline mb-0" v-html="title"></h3>
-                    <div class="subheading">{{description | slice}}...</div>
+                    <div class="subheading">{{description | sliceText(85)}}...</div>
                 </div>
             </v-card-title>
             <v-card-actions>
@@ -17,8 +17,11 @@
 </template>
 
 <script>
+    import { sliceText } from './mixins/sliceText';
+
     export default {
         name: 'article-sample',
+        mixins: [sliceText],
         props: [
             'details'
         ],
@@ -28,20 +31,6 @@
             title: '',
             description: ''
         }),
-        filters: {
-            slice: function(value) {
-                let desc = value.slice(3, 85);
-                const length = desc.length;
-                for(let i = length; i>=0; i--) {
-                    if(desc[i-1] === " ") {
-                        desc = desc.slice(0, i-1);
-                        if([',','.'].includes(desc[i-2])) desc = desc.slice(0, i-2);
-                        return desc;
-                    }
-                    desc = desc.slice(0, i-1);
-                }
-            }
-        },
         watch: {
             '$props': {
                 handler: function (val) {

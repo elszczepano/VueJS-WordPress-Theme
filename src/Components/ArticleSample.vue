@@ -18,10 +18,11 @@
 
 <script>
     import { sliceText } from './mixins/sliceText';
+    import { charReplace } from './mixins/charReplace';
 
     export default {
         name: 'article-sample',
-        mixins: [sliceText],
+        mixins: [sliceText, charReplace],
         props: [
             'details'
         ],

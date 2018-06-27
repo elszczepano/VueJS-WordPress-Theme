@@ -9,7 +9,7 @@
                         </v-flex>
                         <v-flex xs12 sm8 pa-3>
                             <div class="headline" v-html="title"></div>
-                            <div class="subheading">{{description | sliceText(280)}}...</div>
+                            <div class="subheading">{{description | sliceText(280) | charReplace }}...</div>
                             <v-card-actions>
                                 <v-spacer></v-spacer>
                                 <router-link :to="`/post/${slug}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
@@ -24,10 +24,11 @@
 
 <script>
     import { sliceText } from './mixins/sliceText';
+    import { charReplace } from './mixins/charReplace';
 
     export default {
         name: 'article-list-sample',
-        mixins: [sliceText],
+        mixins: [sliceText, charReplace],
         props: [
             'details'
         ],

@@ -10,7 +10,7 @@
                         <v-card-title primary-title>
                             <div>
                                 <h3 class="headline mb-0" v-html="title"></h3>
-                                <div class="subheading">{{description | sliceText(225) | charReplace }}...</div>
+                                <div class="subheading">{{description | charReplace | sliceText(225)}}...</div>
                             </div>
                         </v-card-title>
                         <v-card-actions>

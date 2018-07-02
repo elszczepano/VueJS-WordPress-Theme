@@ -4,7 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
-const devMode = process.env.NODE_ENV !== 'production';
+const devMode = process.env.NODE_ENV === 'development';
 
 const prodPlugins = [
     new UglifyJsPlugin(),
@@ -77,7 +77,7 @@ const config = {
         },
         extensions: ['*', '.js', '.vue', '.json']
     },
-    plugins: !process.env.NODE_ENV || !devMode ? basicPlugins : basicPlugins.concat(prodPlugins)
+    plugins: devMode ? basicPlugins : basicPlugins.concat(prodPlugins)
 };
 
 module.exports = config;

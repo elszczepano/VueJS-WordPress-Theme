@@ -5,7 +5,7 @@
             <v-flex d-flex xs12 md8>
                     <v-card>
                         <router-link :to="`/post/${slug}`">
-                        <v-card-media class="first-article--picture" :src="thumbnail" height="605px">
+                        <v-card-media class="first-article--picture" :src="thumbnail" height="610px">
                         </v-card-media>
                         <v-card-title primary-title>
                             <div>

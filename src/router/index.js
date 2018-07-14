@@ -5,8 +5,6 @@ import ArticlePage from '../Components/ArticlePage';
 import ArticlesList from '../Components/ArticlesList';
 import Page from '../Components/Page';
 import Search from '../Components/Search';
-import Subscribed from '../Components/Subscribed';
-import Unsubscribe from '../Components/Unsubscribe';
 import Portfolio from '../Components/Portfolio';
 import NotFound from '../Components/NotFound';
 import Categories from '../Components/Categories';
@@ -55,16 +53,6 @@ export default new Router({
             component: Portfolio
         },
         {
-            path: '/subscribed',
-            name: 'subscribed',
-            component: Subscribed
-        },
-        {
-            path: '/unsubscribe',
-            name: 'unsubscribe',
-            component: Unsubscribe
-        },
-        {
             path: '/:slug',
             name: 'page',
             component: Page
@@ -74,6 +62,5 @@ export default new Router({
             name: 'NotFound',
             component: NotFound
         }
-    ],
-
+    ]
 });

@@ -125,8 +125,7 @@
             categories: [],
             blogItems: [
                 { title: 'Kategorie', link: '/categories' },
-                { title: 'Artykuły', link: '/posts' },
-                { title: 'Newsletter', link: '/unsubscribe'}
+                { title: 'Artykuły', link: '/posts' }
             ],
             partnershipItems: [],
             authorItems: [

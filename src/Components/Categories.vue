@@ -2,8 +2,8 @@
     <v-app>
         <main-header/>
         <v-layout row wrap class="mx-auto default--container">
-            <v-flex xs12 my-4 text-xs-center>
-                <h2 class="display-2 main-page--header">Kategorie</h2>
+            <v-flex xs12 my-4>
+                <h2 class="display-2 main-page--header text-xs-center">Kategorie</h2>
             </v-flex>
             <v-flex class="loading-spinner" v-if="!ready" xs12 d-flex justify-center align-center>
                 <scale-loader color="#E03C31"></scale-loader>

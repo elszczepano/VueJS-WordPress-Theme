@@ -7,7 +7,7 @@
                     Wyniki wyszukiwania dla:
                     <span class="text__red">{{this.$route.query.s}}</span>
                 </h2>
-                <article-list-sample :details="articles[index]" v-for="(article, index) in articles" :key="`${index}`" />
+                <article-list-sample :details="articles[index]" v-for="(article, index) in articles" :key="`${index}`"/>
                 <infinite-loading force-use-infinite-wrapper="true" @infinite="infiniteHandler">
                     <span v-show="articles.length>5" class="headline" slot="no-more">Koniec artykułów...</span>
                     <h3 v-show="!articles.length" class="text-xs-center">Brak wyników wyszukiwania...</h3>

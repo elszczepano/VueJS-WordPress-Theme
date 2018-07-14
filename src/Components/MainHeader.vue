@@ -124,18 +124,18 @@
             searchPhrase: "",
             categories: [],
             blogItems: [
-                { title: 'Kategorie', link: '/categories' },
-                { title: 'Artykuły', link: '/posts' }
+                { title: 'Kategorie', link: '/categories'},
+                { title: 'Artykuły', link: '/posts'}
             ],
             partnershipItems: [],
             authorItems: [
-                { title: 'Portfolio', link: '/portfolio' }
+                { title: 'Portfolio', link: '/portfolio'}
             ],
             socialMedia: [
-                { icon: 'fab fa-facebook', name: 'Facebook', link: 'https://www.facebook.com/dominikszczepaniak98' },
+                { icon: 'fab fa-facebook', name: 'Facebook', link: 'https://www.facebook.com/dominikszczepaniak98'},
                 { icon: 'fab fa-github', name: 'Github', link: 'https://github.com/elszczepano'},
-                { icon: 'fab fa-linkedin', name: 'LinkedIn', link: 'https://www.linkedin.com/in/dominik-szczepaniak/' },
-                { icon: 'fab fa-stack-overflow', name: 'Stack Overflow', link: 'https://stackoverflow.com/users/8209527/elszczepano' }
+                { icon: 'fab fa-linkedin', name: 'LinkedIn', link: 'https://www.linkedin.com/in/dominik-szczepaniak/'},
+                { icon: 'fab fa-stack-overflow', name: 'Stack Overflow', link: 'https://stackoverflow.com/users/8209527/elszczepano'}
             ]
         }),
         props: {
@@ -144,7 +144,7 @@
         methods: {
             search() {
                 if(!this.searchPhrase) return;
-                router.push({ path: '/search', query: { s: this.searchPhrase }})
+                router.push({path: '/search', query: { s: this.searchPhrase}})
             }
         },
         mounted() {

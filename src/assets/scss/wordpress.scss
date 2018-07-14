@@ -1,43 +1,35 @@
 .alignnone {
   margin: 5px 20px 20px 0;
 }
-
 .aligncenter,
 div.aligncenter {
   display: block;
   margin: 5px auto 5px auto;
 }
-
 .alignright {
   float:right;
   margin: 5px 0 20px 20px;
 }
-
 .alignleft {
   float: left;
   margin: 5px 20px 20px 0;
 }
-
 a img.alignright {
   float: right;
   margin: 5px 0 20px 20px;
 }
-
 a img.alignnone {
   margin: 5px 20px 20px 0;
 }
-
 a img.alignleft {
   float: left;
   margin: 5px 20px 20px 0;
 }
-
 a img.aligncenter {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-
 .article--content {
   blockquote {
     background: #f9f9f9;
@@ -95,7 +87,6 @@ a img.aligncenter {
 pre code {
   width: 100%;
 }
-
 @media (max-width: 988px) {
   h1, h2, h3, h4, h5, h6 {
     text-align: left;
@@ -143,7 +134,6 @@ pre code {
     height: auto;
   }
 }
-
 a, p {
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -154,31 +144,25 @@ a, p {
   -webkit-hyphens: auto;
   hyphens: auto;
 }
-
 pre {
   display: flex;
   justify-content: center;
 }
-
 .wp-caption {
   background: #fff;
   border: 1px solid #f0f0f0;
   padding: 5px 3px 10px;
   text-align: center;
 }
-
 .wp-caption.alignnone {
   margin: 5px 20px 20px 0;
 }
-
 .wp-caption.alignleft {
   margin: 5px 20px 20px 0;
 }
-
 .wp-caption.alignright {
   margin: 5px 0 20px 20px;
 }
-
 .wp-caption img {
   border: 0 none;
   height: auto;
@@ -187,15 +171,12 @@ pre {
   padding: 0;
   width: auto;
 }
-
 .wp-caption p.wp-caption-text {
   font-size: 11px;
   line-height: 17px;
   margin: 0;
   padding: 0 4px 5px;
 }
-
-/* Text meant only for screen readers. */
 .screen-reader-text {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
@@ -206,9 +187,8 @@ pre {
   padding: 0;
   position: absolute !important;
   width: 1px;
-  word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+  word-wrap: normal !important;
 }
-
 .screen-reader-text:focus {
   background-color: #eee;
   clip: auto !important;
@@ -224,5 +204,4 @@ pre {
   top: 5px;
   width: auto;
   z-index: 100000;
-  /* Above WP toolbar. */
 }

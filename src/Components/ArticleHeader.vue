@@ -1,5 +1,5 @@
 <template>
-    <v-container grid-list-md >
+    <v-container grid-list-md>
         <header class="mx-auto default--container article--header">
             <v-flex xs12>
                 <v-card tile>
@@ -17,10 +17,10 @@
                             </strong>
                         </v-flex>
                         <v-flex xs12 sm6 md3 class="align-center">
-                            <strong><v-btn class="red--marker" icon><v-icon small>fas fa-user</v-icon></v-btn> {{author}}</strong>
+                            <strong><v-btn class="red--marker" icon><v-icon small>fas fa-user</v-icon></v-btn>{{author}}</strong>
                         </v-flex>
                         <v-flex xs12 sm6 md3 class="align-center">
-                            <strong><v-btn class="red--marker" icon><v-icon small>fas fa-calendar-alt</v-icon></v-btn> {{date | slice}}</strong>
+                            <strong><v-btn class="red--marker" icon><v-icon small>fas fa-calendar-alt</v-icon></v-btn>{{date | slice}}</strong>
                         </v-flex>
                         <v-flex xs12 sm6 md3>
                             <strong><v-btn class="red--marker" icon><v-icon small>far fa-clock</v-icon></v-btn>{{content | time}} czytania</strong>
@@ -77,7 +77,6 @@
         watch: {
             '$props': {
                 handler: function (val) {
-                    this.categoriesNames = [];
                     this.title = val['details']['title']['rendered'];
                     this.content = val['details']['content']['rendered'];
                     this.thumbnail = val['details']['better_featured_image']['source_url'];

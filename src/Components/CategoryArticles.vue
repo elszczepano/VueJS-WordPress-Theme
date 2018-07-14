@@ -2,7 +2,7 @@
     <v-app>
         <main-header/>
         <v-layout class="mx-auto default--container">
-            <v-flex xs12 ma-2 >
+            <v-flex xs12 ma-2>
                 <h2 class="display-2 main-page--header text-xs-center">
                     Kategoria:
                     <span class="text__red">{{category}}</span>

@@ -25,7 +25,6 @@
 <script>
     import { sliceText } from './mixins/sliceText';
     import { charReplace } from './mixins/charReplace';
-
     export default {
         name: 'article-list-sample',
         mixins: [sliceText, charReplace],

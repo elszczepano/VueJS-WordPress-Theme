@@ -23,7 +23,7 @@
             <v-flex d-flex xs12 md4>
                 <v-layout row wrap>
                     <v-flex v-for="i in 2" :key="`${i}`">
-                        <article-sample :details="articles[i]" />
+                        <article-sample :details="articles[i]"/>
                     </v-flex>
                 </v-layout>
             </v-flex>
@@ -40,7 +40,10 @@
     export default {
         components: {ArticleSample},
         name: 'newest-articles',
-        mixins: [sliceText, charReplace],
+        mixins: [
+            sliceText,
+            charReplace
+        ],
         data: () => ({
             articles: [],
             slug: 0,

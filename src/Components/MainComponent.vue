@@ -20,7 +20,7 @@
                </v-flex>
            </v-layout>
        </v-layout>
-      <main-footer />
+      <main-footer/>
    </v-app>
 </template>
 

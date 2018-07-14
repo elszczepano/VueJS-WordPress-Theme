@@ -35,7 +35,7 @@
         name: 'main-footer',
         data: () => ({
             socialMedia: [
-                { icon: 'fab fa-facebook', link: 'https://www.facebook.com/dominikszczepaniak98' },
+                { icon: 'fab fa-facebook', link: 'https://www.facebook.com/dominikszczepaniak98'},
                 { icon: 'fab fa-github', link: 'https://github.com/elszczepano'},
                 { icon: 'fab fa-linkedin', link: 'https://www.linkedin.com/in/dominik-szczepaniak/' },
                 { icon: 'fab fa-stack-overflow', link: 'https://stackoverflow.com/users/8209527/elszczepano' }

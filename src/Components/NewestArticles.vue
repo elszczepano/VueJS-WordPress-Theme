@@ -10,7 +10,7 @@
                         <v-card-title primary-title>
                             <div>
                                 <h3 class="headline mb-0" v-html="title"></h3>
-                                <div class="subheading">{{description | charReplace | sliceText(225)}}...</div>
+                                <div class="subheading">{{description | charReplace | sliceText(firstArticleLength)}}...</div>
                             </div>
                         </v-card-title>
                         <v-card-actions>
@@ -23,7 +23,7 @@
             <v-flex d-flex xs12 md4>
                 <v-layout row wrap>
                     <v-flex v-for="i in 2" :key="`${i}`">
-                        <article-sample :details="articles[i]"  />
+                        <article-sample :details="articles[i]" />
                     </v-flex>
                 </v-layout>
             </v-flex>
@@ -46,9 +46,11 @@
             slug: 0,
             thumbnail: '',
             title: '',
-            description: ''
+            description: '',
+            firstArticleLength: 225
         }),
         mounted() {
+            if(window.innerWidth < 960) this.firstArticleLength = 85;
             API.get('posts?per_page=3')
                 .then(({data}) => this.articles = data)
                 .then(() => {

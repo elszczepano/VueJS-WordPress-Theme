@@ -4,16 +4,20 @@
             <v-flex xs12 class="hidden-sm-and-down">
                 <v-list dense two-line class="blue-grey darken-4" dark>
                     <v-subheader>Kategorie:</v-subheader>
-                    <router-link v-for="(category, index) in categories" :key="`${index}`" class="white--text" :to="`/category/${category.slug}`">
-                        <v-list-tile @click="">
-                            <v-list-tile-action>
-                                <i class="material-icons red--marker">chevron_right</i>
-                            </v-list-tile-action>
-                            <v-list-tile-content class="subheading list--tile__name">
-                                <v-list-tile-title>{{category.name}}</v-list-tile-title>
-                            </v-list-tile-content>
-                        </v-list-tile>
-                    </router-link>
+                    <v-layout row wrap>
+                        <v-flex v-for="(category, index) in categories" :key="`${index}`" xs6>
+                            <router-link class="white--text" :to="`/category/${category.slug}`">
+                                <v-list-tile @click="">
+                                    <v-list-tile-action>
+                                        <i class="material-icons red--marker">chevron_right</i>
+                                    </v-list-tile-action>
+                                    <v-list-tile-content class="subheading list--tile__name">
+                                        <v-list-tile-title>{{category.name}}</v-list-tile-title>
+                                    </v-list-tile-content>
+                                </v-list-tile>
+                            </router-link>
+                        </v-flex>
+                    </v-layout>
                 </v-list>
             </v-flex>
             <v-flex d-flex sm12 md2>

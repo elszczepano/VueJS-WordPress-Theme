@@ -101,5 +101,6 @@
     }
     .article--header {
         border-bottom: $default-border;
+        padding-bottom: 20px;
     }
 </style>

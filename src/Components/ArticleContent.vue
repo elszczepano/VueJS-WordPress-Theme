@@ -1,5 +1,5 @@
 <template>
-    <v-layout my-5 mx-3 class="mx-auto default--container">
+    <v-layout mt-2 mb-5 mx-3 class="mx-auto default--container">
         <section class="article--content" v-html="content"></section>
     </v-layout>
 </template>

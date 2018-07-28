@@ -62,4 +62,7 @@
 </script>
 
 <style scoped>
+    .default--container {
+        max-width: 1000px !important;
+    }
 </style>

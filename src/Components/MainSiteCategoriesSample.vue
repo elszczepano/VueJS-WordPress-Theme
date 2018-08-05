@@ -15,9 +15,7 @@
     export default {
         components: {ArticleSample},
         name: 'main-site-categories-sample',
-        props: [
-            'category'
-        ],
+        props: ['category'],
         data: () => ({
             articles: []
         }),

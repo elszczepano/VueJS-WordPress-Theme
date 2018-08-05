@@ -7,9 +7,7 @@
 <script>
     export default {
         name: 'article-content',
-        props: [
-            'details'
-        ],
+        props: ['details'],
         data: () => ({
             content: ''
         }),

@@ -21,13 +21,8 @@
     import { charReplace } from './mixins/charReplace';
     export default {
         name: 'article-sample',
-        mixins: [
-            sliceText,
-            charReplace
-        ],
-        props: [
-            'details'
-        ],
+        mixins: [sliceText, charReplace],
+        props: ['details'],
         data: () => ({
             slug: '',
             thumbnail: '',

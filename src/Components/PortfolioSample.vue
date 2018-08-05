@@ -25,9 +25,7 @@
 <script>
     export default {
         name: 'article-list-sample',
-        props: [
-            'details'
-        ],
+        props: ['details'],
         data: () => ({
             thumbnail: '',
             title: '',

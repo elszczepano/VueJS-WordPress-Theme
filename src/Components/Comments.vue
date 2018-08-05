@@ -7,9 +7,7 @@
 <script>
     export default {
         name: 'comments',
-        props: [
-            'details'
-        ],
+        props: ['details'],
         data: () => ({
             identifier: ''
         }),

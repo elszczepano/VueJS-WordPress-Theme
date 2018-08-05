@@ -28,9 +28,7 @@
     export default {
         name: 'article-list-sample',
         mixins: [sliceText, charReplace],
-        props: [
-            'details'
-        ],
+        props: ['details'],
         data: () => ({
             slug: '',
             thumbnail: '',

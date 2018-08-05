@@ -36,14 +36,10 @@
     import API from '../api';
     import { sliceText } from './mixins/sliceText';
     import { charReplace } from './mixins/charReplace';
-
     export default {
         components: {ArticleSample},
         name: 'newest-articles',
-        mixins: [
-            sliceText,
-            charReplace
-        ],
+        mixins: [sliceText, charReplace],
         data: () => ({
             articles: [],
             slug: 0,

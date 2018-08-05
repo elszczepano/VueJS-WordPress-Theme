@@ -36,9 +36,7 @@
     import API from '../api';
     export default {
         name: 'article-header',
-        props: [
-            'details'
-        ],
+        props: ['details'],
         data: () => ({
             id: 0,
             thumbnail: '',

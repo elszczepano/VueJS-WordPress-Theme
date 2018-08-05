@@ -34,8 +34,8 @@
 <script>
     import ArticleSample from './ArticleSample';
     import API from '../api';
-    import { sliceText } from './mixins/sliceText';
-    import { charReplace } from './mixins/charReplace';
+    import sliceText from './mixins/sliceText';
+    import charReplace from './mixins/charReplace';
     export default {
         components: {ArticleSample},
         name: 'newest-articles',

@@ -1,4 +1,4 @@
-export const charReplace = {
+const charReplace = {
     filters: {
         charReplace: function(value) {
             let desc = value;
@@ -16,3 +16,4 @@ export const charReplace = {
         }
     },
 };
+export default charReplace;

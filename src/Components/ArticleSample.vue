@@ -17,8 +17,8 @@
 </template>
 
 <script>
-    import { sliceText } from './mixins/sliceText';
-    import { charReplace } from './mixins/charReplace';
+    import sliceText from './mixins/sliceText';
+    import charReplace from './mixins/charReplace';
     export default {
         name: 'article-sample',
         mixins: [sliceText, charReplace],

@@ -1,4 +1,4 @@
-export const sliceText = {
+const sliceText = {
     filters: {
         sliceText: function(value, size) {
             let desc = value.slice(3, size);
@@ -14,3 +14,4 @@ export const sliceText = {
         }
     }
 };
+export default sliceText;

@@ -75,6 +75,7 @@
         watch: {
             '$props': {
                 handler: function (val) {
+                    this.categories = [];
                     this.title = val['details']['title']['rendered'];
                     this.content = val['details']['content']['rendered'];
                     this.thumbnail = val['details']['better_featured_image']['source_url'];

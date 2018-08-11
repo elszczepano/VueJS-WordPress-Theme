@@ -16,6 +16,9 @@
                     <v-flex xs12>
                         <comments :details="article[0]"/>
                     </v-flex>
+                    <v-flex xs12 mt-3 mb-5>
+                        <recommended-articles :details="article[0]"/>
+                    </v-flex>
                 </article>
             </v-layout>
         </v-layout>
@@ -30,6 +33,7 @@
     import Comments from './Comments';
     import ArticleContent from './ArticleContent';
     import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue';
+    import RecommendedArticles from './RecommendedArticles';
     import API from '../api';
     import router from '../router';
     export default {
@@ -37,6 +41,7 @@
             ArticleContent,
             Comments,
             ArticleHeader,
+            RecommendedArticles,
             MainFooter,
             MainHeader,
             ScaleLoader
@@ -61,10 +66,12 @@
         },
         watch: {
             '$route' () {
+                window.scrollTo(0, 0);
                 this.loadContent();
             }
         },
         mounted() {
+            window.scrollTo(0, 0);
             this.loadContent();
         }
     };

@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="`/post/${slug}`">
+    <a :href="`https://devszczepaniak.pl/post/${slug}`">
         <v-card>
             <v-card-media :src="thumbnail" height="200px"></v-card-media>
             <v-card-title class="article-sample__description" primary-title>
@@ -10,10 +10,10 @@
             </v-card-title>
             <v-card-actions>
                 <v-spacer></v-spacer>
-                <router-link :to="`/post/${slug}`"><v-btn flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn></router-link>
+                <v-btn :href="`https://devszczepaniak.pl/post/${slug}`" flat>Czytaj dalej <i class="material-icons red--marker">chevron_right</i></v-btn>
             </v-card-actions>
         </v-card>
-    </router-link>
+    </a>
 </template>
 
 <script>

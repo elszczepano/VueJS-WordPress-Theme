@@ -5,7 +5,7 @@
                 <v-list dense two-line class="blue-grey darken-4" dark>
                     <v-subheader>Kategorie:</v-subheader>
                     <v-layout row wrap>
-                        <v-flex v-for="(category, index) in categories" :key="`${index}`" xs6>
+                        <v-flex v-for="(category, index) in categories" :key="`${index}`" xs4>
                             <router-link class="white--text" :to="`/category/${category.slug}`">
                                 <v-list-tile @click="">
                                     <v-list-tile-action>

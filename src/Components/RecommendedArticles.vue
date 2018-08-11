@@ -12,11 +12,14 @@
 <script>
     import ArticleSample from './ArticleSample';
     import API from '../api';
+    import router from '../router';
     export default {
         components: {ArticleSample},
         name: 'recommended-articles',
+        props: ['details'],
         data: () => ({
-            articles: []
+            articles: [],
+            currentArticle: {}
         }),
         methods: {
             loadContent() {
@@ -27,6 +30,10 @@
                         for(let i = 0; i< 3; i++) {
                             const randomItemIndex = Math.floor(Math.random()*this.articles.length)
                             const randomItem = this.articles[randomItemIndex];
+                            if(this.currentArticle.id === randomItem.id) {
+                                --i;
+                                continue;
+                            }
                             this.articles.splice(randomItemIndex, 1);
                             randomArticles.push(randomItem);
                         }
@@ -40,6 +47,12 @@
         watch: {
             '$route' () {
                 this.loadContent();
+            },
+            '$props': {
+                handler: function (val) {
+                    this.currentArticle = val['details'];
+                },
+                deep: true
             }
         },
         mounted() {

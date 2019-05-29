@@ -60,7 +60,7 @@
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "vue-loader": "^15.0.10",
-    "vue-server-renderer": "^2.5.16",
+    "vue-server-renderer": "^2.6.10",
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.8.3",

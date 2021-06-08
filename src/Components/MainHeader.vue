@@ -169,7 +169,6 @@
 
 <style lang="scss" scoped>
     .logo {
-        font-family: $logo-font;
         font-size: 2rem;
     }
     .input-group--focused {
